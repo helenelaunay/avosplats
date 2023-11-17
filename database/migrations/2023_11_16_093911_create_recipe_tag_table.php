@@ -14,17 +14,15 @@ return new class extends Migration
         Schema::create('recipe_tag', function (Blueprint $table) {
             $table->id();
             
-            $table->bigInteger('tag_id')->unsigned()->nullable();
+            $table->bigInteger('tag_id')->unsigned();
             $table->foreign('tag_id')
                   ->references('id')
                   ->on('tags');   
             
-            $table->bigInteger('recipe_id')->unsigned()->nullable();
+            $table->bigInteger('recipe_id')->unsigned();
             $table->foreign('recipe_id')
                   ->references('id')
                   ->on('recipes');
-                  
-            
             
             $table->timestamps();
         });
