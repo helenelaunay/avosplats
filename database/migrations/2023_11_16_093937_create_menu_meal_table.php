@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('menu_meal', function (Blueprint $table) {
             $table->id();
 
-            $table->bigInteger('meal_id')->unsigned()->nullable()->onUpdate('cascade')->onDelete('cascade');
+            $table->bigInteger('meal_id')->unsigned()->nullable();
             $table->foreign('meal_id')
                   ->references('id')
                   ->on('meals');   
 
-            $table->bigInteger('menu_id')->unsigned()->nullable()->onUpdate('cascade')->onDelete('cascade');
+            $table->bigInteger('menu_id')->unsigned()->nullable();
             $table->foreign('menu_id')
                   ->references('id')
                   ->on('menus');
