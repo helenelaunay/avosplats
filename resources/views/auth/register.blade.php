@@ -12,15 +12,15 @@
                             @csrf
 
                             <div class="row mb-3">
-                                <label for="pseudoUser"
+                                <label for="pseudo"
                                     class="col-md-4 col-form-label text-md-end">{{ __('Pseudo') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="pseudoUser" type="text"
-                                        class="form-control @error('pseudoUser') is-invalid @enderror" name="pseudoUser"
-                                        value="{{ old('pseudoUser') }}" required autocomplete="pseudoUser" autofocus>
+                                    <input id="pseudo" type="text"
+                                        class="form-control @error('pseudo') is-invalid @enderror" name="pseudo"
+                                        value="{{ old('pseudo') }}" required autocomplete="pseudo" autofocus>
 
-                                    @error('pseudoUser')
+                                    @error('pseudo')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
@@ -29,15 +29,15 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="photoUser"
+                                <label for="photo"
                                     class="col-md-4 col-form-label text-md-end">{{ __('Photo de profil') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="photoUser" type="text"
-                                        class="form-control @error('photoUser') is-invalid @enderror" name="photoUser"
-                                        value="{{ old('photoUser') }}" required autocomplete="photoUser" autofocus>
+                                    <input id="photo" type="text"
+                                        class="form-control @error('photo') is-invalid @enderror" name="photo"
+                                        value="{{ old('photo') }}" required autocomplete="photo" autofocus>
 
-                                    @error('photoUser')
+                                    @error('photo')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
@@ -46,15 +46,15 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="emailUser"
+                                <label for="email"
                                     class="col-md-4 col-form-label text-md-end">{{ __('E-mail') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="emailUser" type="email"
-                                        class="form-control @error('emailUser') is-invalid @enderror" name="emailUser"
-                                        value="{{ old('emailUser') }}" required autocomplete="emailUser">
+                                    <input id="email" type="email"
+                                        class="form-control @error('email') is-invalid @enderror" name="email"
+                                        value="{{ old('email') }}" required autocomplete="email">
 
-                                    @error('emailUser')
+                                    @error('email')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
