@@ -17,22 +17,22 @@ class UserSeeder extends Seeder
     {
         // Création de l'administrateur
         User::create([ 
-        'pseudoUser' => 'administrateur',
-        'photoUser' => 'photo.jpg',
-        'emailUser' => 'admin@test.fr',
+        'pseudo' => 'administrateur',
+        'photo' => 'photo.jpg',
+        'email' => 'admin@test.fr',
         'email_verified_at' => now(),
-        'passwordUser' => Hash::make('Administrateur'),
+        'password' => Hash::make('Administrateur'),
         'remember_token' => Str::random(10),
         'role_id' => 2
         ]);
 
         // Création d'un utilisateur test
         User::create([ 
-            'pseudoUser' => 'utilisateur',
-            'photoUser' => 'photo.jpg',
-            'emailUser' => 'utilisateur@test.fr',
+            'pseudo' => 'utilisateur',
+            'photo' => 'photo.jpg',
+            'email' => 'utilisateur@test.fr',
             'email_verified_at' => now(),
-            'passwordUser' => Hash::make('Utilisateur'),
+            'password' => Hash::make('Utilisateur'),
             'remember_token' => Str::random(10),
             'role_id' => 2
         ]);
