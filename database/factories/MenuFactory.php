@@ -18,7 +18,7 @@ class MenuFactory extends Factory
     public function definition(): array
     {
         return [
-            'nameMenu' => $this->faker->name(),
+            'nameMenu' => $this->faker->words(rand(2,8), true),
             'user_id' => rand(1, User::count()), 
         ];
     }

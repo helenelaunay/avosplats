@@ -11,9 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('recipe_tag', function (Blueprint $table) {
-            $table->id();
-            
+        Schema::create('recipe_tag', function (Blueprint $table) {            
             $table->bigInteger('tag_id')->unsigned();
             $table->foreign('tag_id')
                   ->references('id')

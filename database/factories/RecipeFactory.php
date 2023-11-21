@@ -19,10 +19,10 @@ class RecipeFactory extends Factory
     public function definition(): array
     {
         return [
-            'nameRecipe' => $this->faker->name(),
+            'nameRecipe' => $this->faker->sentence(rand(3,6),true),
             'photoRecipe' => 'image_recipe_' . rand(1,9) . '.jpg',
-            'contentRecipe' => $this->faker->paragraph(),
-            'checkedRecipe' => true, // Toujours définir comme true,
+            'contentRecipe' => $this->faker->paragraph(rand(3,7)),
+            'checkedRecipe' => true, // Toujours définir comme validée,
             'user_id' => rand(1, User::count()), 
             'meal_id' => rand(1, Meal::count()),
         ];

@@ -14,6 +14,7 @@ class Recipe extends Model
         'photoRecipe',
         'emailUser',
         'contentRecipe',
+        'checkedRecipe',
     ];
 
     public function user()
