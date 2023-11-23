@@ -34,7 +34,7 @@ class UserSeeder extends Seeder
             'email_verified_at' => now(),
             'password' => Hash::make('Utilisateur'),
             'remember_token' => Str::random(10),
-            'role_id' => 2
+            'role_id' => 1
         ]);
 
         // Création de 8 users aléatoires

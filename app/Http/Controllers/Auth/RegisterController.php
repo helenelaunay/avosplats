@@ -7,7 +7,9 @@ use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Password as FacadesPassword;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rules\Password;
 
 class RegisterController extends Controller
 {
@@ -51,9 +53,9 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'pseudo' => ['required', 'string', 'max:40', 'unique:users'],
-            'photo' => ['required', 'string', 'max:40'],
+            'photo' => ['required', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/', 'confirmed'],
+            'password' => ['required', Password::min(8)->letters()->mixedCase()->numbers()->symbols(), 'confirmed'],
         ]);
     }
 
@@ -65,9 +67,13 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
+        $photoName = time() . '.' . $data['photo']->extension();
+        $data['photo']->move(public_path('photos_de_profil'), $photoName);
+
         return User::create([
             'pseudo' => $data['pseudo'],
-            'photo' => $data['photo'],
+            'photo' =>  $photoName,
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);

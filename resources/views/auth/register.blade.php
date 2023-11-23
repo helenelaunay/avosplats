@@ -5,10 +5,10 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Register') }}</div>
+                    <div class="card-header">{{ __('Créer un compte') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}">
+                        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                             @csrf
 
                             <div class="row mb-3">
@@ -33,7 +33,7 @@
                                     class="col-md-4 col-form-label text-md-end">{{ __('Photo de profil') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="photo" type="text"
+                                    <input id="photo" type="file"
                                         class="form-control @error('photo') is-invalid @enderror" name="photo"
                                         value="{{ old('photo') }}" required autocomplete="photo" autofocus>
 
