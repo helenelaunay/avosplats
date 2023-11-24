@@ -50,7 +50,7 @@
 
             </div>
             <div class="pt-5">
-                <form id="deleteUserForm" action="{{ route('destroyUser', $user) }}" method="post">
+                <form id="deleteUserForm" action="{{ route('destroyUser', $user) }}" method="post" onsubmit="return confirmDelete()">
                     @csrf
                     @method('delete')
                     <button type="submit" class="btn btn-danger" onclick="confirmDelete()">Supprimer le compte</button>

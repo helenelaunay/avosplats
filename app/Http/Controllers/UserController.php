@@ -68,7 +68,8 @@ class UserController extends Controller
         // on vérifie que c'est bien l'utilisateur connecté qui fait la demande de suppression 
         // les id doivent être identiques
         if (Auth::user()->id == $user->id) {
-            $user->delete(); // on réalise la suppression
+            $user->delete(); // on réalise la suppression de l'utilisateur
+            unlink(public_path('photos_de_profil' . '/' . $user->photo)); // on supprime aussi la photo de l'utilisateur
             return redirect()->route('welcome')->with('message', 'Le compte a bien été supprimé.');
         } else {
             return redirect()->back()->withErrors(['erreur'=> 'Suppression du compte impossible.']);

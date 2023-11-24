@@ -20,12 +20,10 @@
         function confirmDelete() {
             // J'utilise window.confirm pour afficher une boite de dialogue
             var confirmation = window.confirm("Êtes-vous sûr de vouloir supprimer votre compte?")
-            // si l'utilisateur clique sur ok, soumettre le formulaire
-            if (confirmation) {
-                document.getElementById('deleteUserForm').submit();
+            // Retourne true si l'utilisateur clique sur Ok, false sinon sur Annuler
+            return confirmation;
             }
-            // Sinon, ne rien faire, le formulaire ne sera pas soumis
-        }
+
     </script>
 </head>
 <body>
