@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,7 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Auth::routes();
 
@@ -27,4 +28,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('users/edit/{user}', [App\Http\Controllers\UserController::class, 'edit'])->name('editUser');
 Route::put('users/update/{user}', [App\Http\Controllers\UserController::class, 'update'])->name('updateUser');
 Route::delete('users/destroy/{user}', [App\Http\Controllers\UserController::class, 'destroy'])->name('destroyUser');
-//créer route updatePassword sur UserController
+Route::get('users/editPassword/{user}', [App\Http\Controllers\UserController::class, 'editPassword'])->name('editPasswordUser');
+Route::put('users/updatePassword/{user}', [App\Http\Controllers\UserController::class, 'updatePassword'])->name('updatePasswordUser');

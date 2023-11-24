@@ -6,6 +6,9 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+//use Illuminate\Support\Facades\Password;
+use Illuminate\Validation\Rules\Password;
 
 class UserController extends Controller
 {
@@ -71,5 +74,60 @@ class UserController extends Controller
             return redirect()->back()->withErrors(['erreur'=> 'Suppression du compte impossible.']);
         }
     }
-}
 
+    public function editPassword(User $user)
+    {
+        return view('user/editPassword', ['user' => $user]);
+    }
+
+    public function updatePassword(Request $request, User $user)
+    {
+        // on vérifie que c'est bien l'utilisateur connecté qui fait la demande de modification de mot de passe 
+        // les id doivent être identiques
+        if (Auth::user()->id == $user->id) {
+
+
+            $request->validate([
+                'password' => 'required',
+                'new_password' => ['required', Password::min(8)->letters()->mixedCase()->numbers()->symbols()],
+                'confirm_new_password' => ['required', Password::min(8)->letters()->mixedCase()->numbers()->symbols()],
+            ]);
+
+
+                    // Vérifier que le mot de passe actuel est correct
+                if (Hash::check($request->input('password'), $user->password)) {
+                    
+                    // Vérifie que le nouveau mot de passe est différent de l'ancien
+                    if ($request->input('password') !== $request->input('new_password')) {
+
+                        // Vérifie que le nouveau mot de passe correspond à la confirmation
+                        if ($request->input('new_password') === $request->input('confirm_new_password')) {
+                            
+                            // Mettre à jour le mot de passe de l'utilisateur
+                            $user->update([
+                                'password' => Hash::make($request->new_password),
+                            ]);
+
+                            // Rediriger avec un message de succès
+                            return back()-> with('message', 'Le mot de passe a bien été mis à jour.');
+                            
+                        } else {
+                            
+                            // Rediriger avec un message d'erreur si le nouveau mot de passe ne correspond pas avec la confirmation
+                            return redirect()->back()->withErrors(['erreur' => 'Le nouveau mot de passe ne correspond pas avec la confirmation !']);
+                        }
+                    } else {
+                    
+                        // Rediriger avec un message d'erreur si le nouveau mot de passe est identique à l'ancien
+                        return redirect()->back()->withErrors(['erreur' => 'Le nouveau mot de passe est identique avec l\'ancien.']);
+                    }
+
+
+                } else {
+                    
+                    // Rediriger avec un message d'erreur si le mot de passe actuel est incorrect
+                    return redirect()->back()->withErrors(['erreur' => 'Le mot de passe actuel est incorrect.']);
+                }
+        } 
+    }
+}

@@ -15,6 +15,18 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+    <script>
+        function confirmDelete() {
+            // J'utilise window.confirm pour afficher une boite de dialogue
+            var confirmation = window.confirm("Êtes-vous sûr de vouloir supprimer votre compte?")
+            // si l'utilisateur clique sur ok, soumettre le formulaire
+            if (confirmation) {
+                document.getElementById('deleteUserForm').submit();
+            }
+            // Sinon, ne rien faire, le formulaire ne sera pas soumis
+        }
+    </script>
 </head>
 <body>
     <div id="app">
@@ -57,7 +69,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('editUser', $user = Auth::user())}}">{{ __('Modifier mes informations') }}</a>
-                                    <a class="dropdown-item" href="">{{ __('Modifier mon mot de passe') }}</a>
+                                    <a class="dropdown-item" href="{{ route ('editPasswordUser', $user = Auth::user())}}">{{ __('Modifier mon mot de passe') }}</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
