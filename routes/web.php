@@ -1,8 +1,11 @@
 <?php
 
+use App\Models\Menu;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MenuController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -22,11 +25,25 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route Home
+Route::get('/home', function() {
+    $user = auth()->user(); // utilisateur connecté
+    $menus = $user->menu; // On récupère les menus de l'utilisateur connecté
+    return view('home', compact('menus'));},
+[App\Http\Controllers\HomeController::class, 
+'index'])
+->name('home');
 
 // Route User
-Route::get('users/edit/{user}', [App\Http\Controllers\UserController::class, 'edit'])->name('editUser');
-Route::put('users/update/{user}', [App\Http\Controllers\UserController::class, 'update'])->name('updateUser');
-Route::delete('users/destroy/{user}', [App\Http\Controllers\UserController::class, 'destroy'])->name('destroyUser');
-Route::get('users/editPassword/{user}', [App\Http\Controllers\UserController::class, 'editPassword'])->name('editPasswordUser');
-Route::put('users/updatePassword/{user}', [App\Http\Controllers\UserController::class, 'updatePassword'])->name('updatePasswordUser');
+Route::get('user/edit/{user}', [App\Http\Controllers\UserController::class, 'edit'])->name('editUser');
+Route::put('user/update/{user}', [App\Http\Controllers\UserController::class, 'update'])->name('updateUser');
+Route::delete('user/destroy/{user}', [App\Http\Controllers\UserController::class, 'destroy'])->name('destroyUser');
+Route::get('user/editPassword/{user}', [App\Http\Controllers\UserController::class, 'editPassword'])->name('editPasswordUser');
+Route::put('user/updatePassword/{user}', [App\Http\Controllers\UserController::class, 'updatePassword'])->name('updatePasswordUser');
+
+// Route Menu
+Route::get('menu/create', [App\Http\Controllers\MenuController::class, 'create'])->name('createMenu');
+Route::post('menu/store', [App\Http\Controllers\MenuController::class, 'store'])->name('storeMenu');
+Route::get('menu/edit', [App\Http\Controllers\MenuController::class, 'edit'])->name('editMenu');
+Route::put('menu/update/{idMenu}', [App\Http\Controllers\MenuController::class, 'update'])->name('updateMenu');
+Route::delete('menu/destroy/{idMenu}', [App\Http\Controllers\MenuController::class, 'destroy'])->name('destroyMenu');

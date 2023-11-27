@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Models\Meal;
+use App\Models\Menu;
+use App\Models\Recipe;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MenuController extends Controller
 {
@@ -19,7 +24,10 @@ class MenuController extends Controller
      */
     public function create()
     {
-        //
+        $user = auth::user();
+        $recipes = Recipe::get();
+        $meals = Meal::get();
+        return view('menu/create', compact('user', 'recipes', 'meals'));
     }
 
     /**
@@ -27,38 +35,65 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nameMenu' => 'required|max:150',
+        ]);
+
+        $menu = Menu::create([
+            'nameMenu' => $request->nameMenu,
+            'user_id' => auth::user()->id, 
+        ]);
+        return redirect()->route('home')->with('message', 'Votre menu a bien été créé !');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show()
     {
-        //
+       //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Request $request)
     {
-        //
+        $menu = Menu::find($request->idMenu);
+        return view('menu/edit', compact('menu'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Menu $menu)
     {
-        //
+        $request->validate([
+            'nameMenu' => 'required|max:150',
+        ]);
+
+        //on modifie le nom du Menu
+        $menu->nameMenu = $request->input('nameMenu'); 
+        $menu->user_id = Auth::user()->id;  
+
+        //on sauvegarde les changement en db
+        $menu->save();
+
+        //on redirige sur la page précédente
+        return redirect()->route('home')-> with('message', 'Le nom du menu a bien été modifié.');            
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request, $id)
     {
-        //
+        if (Auth::user()->id == $request->user_id) {
+            $menu = Menu::find($id);
+            $menu->delete(); // on réalise la suppression du menu
+            return redirect()->route('home')->with('message', 'Le menu a bien été supprimé.');
+        } else {
+            return redirect()->back()->withErrors(['erreur'=> 'Suppression du menu impossible.']);
+        }
     }
 }

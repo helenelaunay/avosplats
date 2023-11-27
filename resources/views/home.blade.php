@@ -1,23 +1,24 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Mon compte') }}</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+<div><a href="{{ route('createMenu') }}">Créer un menu</a></div>
+<div>
+    @foreach ($menus as $menu)
+    <h3>{{ $menu->nameMenu }}</h3>
 
-                    {{ __('Vous êtes connecté(e) !') }}
-                </div>
-            </div>
-        </div>
-    </div>
+    <form action="{{ route ('editMenu', $menu->id)}}">
+        <input type="hidden" value="{{ $menu->id }}" name="idMenu">
+        <input type="submit" value="Modifier"> 
+</form>
+<form id="deleteMenuForm" action="{{ route('destroyMenu', $menu->id) }}" method="post">
+    @csrf
+    @method('delete')
+    <input type="hidden" value="{{ $menu->user_id }}" name="user_id">
+    <button type="submit" class="btn btn-danger">Supprimer</button>
+</form>
+
+        
+    @endforeach
 </div>
 @endsection

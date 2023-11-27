@@ -28,6 +28,11 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Role::class);
     }
+
+    public function menu()
+    {
+        return $this->hasMany(Menu::class);
+    }
     
 
     public function isAdmin()
