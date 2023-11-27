@@ -20,6 +20,7 @@ class MenuFactory extends Factory
         return [
             'nameMenu' => $this->faker->words(rand(2,8), true),
             'user_id' => rand(1, User::count()), 
+            'archived' => $this->faker->boolean,
         ];
     }
 }

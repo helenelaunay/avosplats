@@ -11,7 +11,8 @@ class Menu extends Model
 
     protected $fillable = [
         'nameMenu',
-        'user_id'
+        'user_id' , 
+        'archived'
     ];
 
     public function meals()
