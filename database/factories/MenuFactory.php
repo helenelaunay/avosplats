@@ -17,10 +17,10 @@ class MenuFactory extends Factory
      */
     public function definition(): array
     {
+        // a revoir !!!
         return [
-            'nameMenu' => $this->faker->words(rand(2,8), true),
+            "nameMenu" => $this->faker->sentence(rand(3,6),true),
             'user_id' => rand(1, User::count()), 
-            'archived' => $this->faker->boolean,
         ];
     }
 }

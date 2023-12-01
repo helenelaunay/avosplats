@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             RecipeSeeder::class,
             TagSeeder::class,
             MenuSeeder::class,
+            MealsMenusSeeder::class,
         ]);
     }
 }

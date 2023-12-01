@@ -13,6 +13,12 @@ class MenuSeeder extends Seeder
      */
     public function run(): void
     {
+
+        Menu::create([
+            'nameMenu' => 'Mon menu du lundi 27/11 au dimanche 03/12',
+            'user_id' => 2,
+        ]);
+
         Menu::factory(20)->create();
     }
 }

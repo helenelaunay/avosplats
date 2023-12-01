@@ -34,7 +34,7 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $request->validate([
-            'pseudo' => 'required|max:40',
+            'pseudo' => 'nullable|max:40',
             'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 

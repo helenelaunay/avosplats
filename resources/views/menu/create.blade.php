@@ -41,18 +41,8 @@
 
                     <button type="submit" class="btn btn-primary mb-3">Valider</button>
                 </form>
-<table>
-    @foreach ($meals as $meal)
-    <tr>{{ $meal->nameMeal }}</tr>
-    @endforeach
-</table>
-
-            </div>
-            <ul>
-                @foreach ($recipes as $recipe)
-                    <li>{{ $recipe->nameRecipe }} </li>
-                @endforeach
-            </ul>
-        </div>
+<div>
+    <p>Attention : Vous ne pouvez afficher que 2 menus. Si deux menus sont déjà créés sur votre profil, le plus ancien disparaitra à la création d'un nouveau.</p>
+</div>
     </main>
 @endsection

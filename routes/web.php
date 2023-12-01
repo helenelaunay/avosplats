@@ -26,13 +26,7 @@ Route::get('/', function () {
 Auth::routes();
 
 // Route Home
-Route::get('/home', function() {
-    $user = auth()->user(); // utilisateur connecté
-    $menus = $user->menu; // On récupère les menus de l'utilisateur connecté
-    return view('home', compact('menus'));},
-[App\Http\Controllers\HomeController::class, 
-'index'])
-->name('home');
+Route::get('/home',[App\Http\Controllers\HomeController::class,'index'])->name('home');
 
 // Route User
 Route::get('user/edit/{user}', [App\Http\Controllers\UserController::class, 'edit'])->name('editUser');
