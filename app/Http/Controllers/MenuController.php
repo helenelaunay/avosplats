@@ -25,9 +25,7 @@ class MenuController extends Controller
     public function create()
     {
         $user = auth::user();
-        $recipes = Recipe::get();
-        $meals = Meal::get();
-        return view('menu/create', compact('user', 'recipes', 'meals'));
+        return view('menu/create', compact('user'));
     }
 
     /**

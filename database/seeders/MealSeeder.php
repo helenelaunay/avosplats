@@ -15,59 +15,73 @@ class MealSeeder extends Seeder
     {
        // Création des différents repas
        Meal::create([
-        'nameMeal' => 'lundi midi', 
+        'nameMeal' => 'lundi midi',
+        'recipe_id' => rand(1,60) 
        ]);
 
        Meal::create([
-        'nameMeal' => 'lundi soir', 
+        'nameMeal' => 'lundi soir',
+        'recipe_id' => null  
        ]);
 
        Meal::create([
-        'nameMeal' => 'mardi midi', 
+        'nameMeal' => 'mardi midi',
+        'recipe_id' => null  
        ]);
 
        Meal::create([
-        'nameMeal' => 'mardi soir', 
+        'nameMeal' => 'mardi soir',
+        'recipe_id' => rand(1,60)  
        ]);
 
        Meal::create([
-        'nameMeal' => 'mercredi midi', 
+        'nameMeal' => 'mercredi midi',
+        'recipe_id' => rand(1,60)  
        ]);
 
        Meal::create([
-        'nameMeal' => 'mercredi soir', 
+        'nameMeal' => 'mercredi soir',
+        'recipe_id' => rand(1,60)  
        ]);
 
        Meal::create([
-        'nameMeal' => 'jeudi midi', 
+        'nameMeal' => 'jeudi midi',
+        'recipe_id' => rand(1,60)  
        ]);
 
        Meal::create([
-        'nameMeal' => 'jeudi soir', 
+        'nameMeal' => 'jeudi soir',
+        'recipe_id' => rand(1,60)  
        ]);
 
        Meal::create([
-        'nameMeal' => 'vendredi midi', 
+        'nameMeal' => 'vendredi midi',
+        'recipe_id' => null   
        ]);
 
        Meal::create([
-        'nameMeal' => 'vendredi soir', 
+        'nameMeal' => 'vendredi soir',
+        'recipe_id' => null   
        ]);
 
        Meal::create([
-        'nameMeal' => 'samedi midi', 
+        'nameMeal' => 'samedi midi',
+        'recipe_id' => rand(1,60)  
        ]);
 
        Meal::create([
-        'nameMeal' => 'samedi soir', 
+        'nameMeal' => 'samedi soir',
+        'recipe_id' => rand(1,60)  
        ]);
 
        Meal::create([
-        'nameMeal' => 'dimanche midi', 
+        'nameMeal' => 'dimanche midi',
+        'recipe_id' => null   
        ]);
 
        Meal::create([
-        'nameMeal' => 'dimanche soir', 
+        'nameMeal' => 'dimanche soir',
+        'recipe_id' => rand(1,60)  
        ]);
     }
 }

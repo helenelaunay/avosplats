@@ -8,6 +8,13 @@
     <h3>{{ $menu->nameMenu }}</h3>
     @foreach ($menu->meals as $meal)
     <p>{{ $meal->nameMeal }}</p>
+    <p>{{ $meal->recipes->nameRecipe }}</p>
+    <form action="{{ route('indexRecipe') }}">
+        <input type="hidden" value="{{ $meal->id }}" name="meal_id">
+        <button type="submit"><i class="fa-solid fa-plus"></i>
+        </button>
+
+    </form>
 @endforeach
     <form action="{{ route ('editMenu', $menu->id)}}">
         <input type="hidden" value="{{ $menu->id }}" name="idMenu">
@@ -23,5 +30,7 @@
 
         
     @endforeach
+
+    
 </div>
 @endsection

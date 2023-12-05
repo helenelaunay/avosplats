@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('nameMeal');
             $table->timestamps();
+
+            $table->foreignId('recipe_id')->nullable()->constrained();
         });
     }
 

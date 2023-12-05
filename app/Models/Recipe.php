@@ -15,6 +15,7 @@ class Recipe extends Model
         'emailUser',
         'contentRecipe',
         'checkedRecipe',
+        'user_id'
     ];
 
     public function user()

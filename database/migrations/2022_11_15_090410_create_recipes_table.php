@@ -20,7 +20,6 @@ return new class extends Migration
             $table->timestamps();
 
             $table->foreignId('user_id')->constrained();
-            $table->foreignId('meal_id')->constrained();
         });
     }
 

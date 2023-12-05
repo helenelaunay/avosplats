@@ -3,13 +3,16 @@
     @section('content')
         <section id="hero">
 <h1>Retrouvez vos menus et vos recettes en 1 clic sur tous vos écrans</h1>
-<a href="{{ route('register') }}">Je m'inscris !</a>
-<a href="{{ route('login') }}">Déjà inscrit ? Cliquez ici pour vous connecter</a>
+<div class="d-flex flex-column">
+    <a id="btn-hero" href="{{ route('register') }}">Je m'inscris !</a>
+    <a href="{{ route('login') }}">Déjà inscrit ? Cliquez ici pour vous connecter</a>
+</div>
+
         </section>
 
         <section id="section-infos">
-            <div>
-                <div>
+            <div id="section-infos-container1">
+                <div id="section-infos-bloc1">
                     <div>
                         <h2>Organisez vos menus à la semaine</h2>
                     </div>
@@ -24,7 +27,7 @@
                 </div>
                 <div>
                     <div>
-                        <img src="" alt="">
+                        <img src= "url(http://[::1]:5173/public/images/screen-menu.png)" alt="">
                     </div>
 
                 </div>
@@ -89,22 +92,22 @@
         <section id="section-contact">
             <div>
                 <h2>Une question ? Une suggestion ?</h2>
-                <a href="">Contactez-nous !</a>
+                <a class="" href="">Contactez-nous !</a>
             </div>
         </section>
 
-        <section id="pre-footer" class="d-flex">
-            <div class="d-flex flex-column align-items-center">
+        <section id="pre-footer">
+            <div id="container-pre-footer">
                 <div><i class="fa-solid fa-hands-holding"></i></div>
                 <div><h4>Collaboratif</h4></div>
                 <div><p class="text-center">Profitez d’une quantité infinie de combinaison de recettes pour vos menus.</p></div>
             </div>
-            <div class="d-flex flex-column align-items-center">
+            <div id="container-pre-footer">
                 <div><i class="fa-solid fa-forward-fast"></i></div>
                 <div><h4>Gain de temps</h4></div>
                 <div><p class="text-center">Retrouvez vos recettes et votre menu de la semaine au même endroit, en un clic.</p></div>
             </div>
-            <div class="d-flex flex-column align-items-center">
+            <div id="container-pre-footer">
                 <div><i class="fa-solid fa-earth-europe"></i></div>
                 <div><h4>Disponible partout</h4></div>
                 <div><p class="text-center">A vos plats ! est accessible sur tous vos écrans pour vous simplifier la vie.</p></div>

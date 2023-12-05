@@ -24,7 +24,6 @@ class RecipeFactory extends Factory
             'contentRecipe' => $this->faker->paragraph(rand(3,7)),
             'checkedRecipe' => true, // Toujours définir comme validée,
             'user_id' => rand(1, User::count()), 
-            'meal_id' => rand(1, Meal::count()),
         ];
     }
 }

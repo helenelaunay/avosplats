@@ -22,4 +22,9 @@ class Meal extends Model
     {
         return $this->belongsToMany(Menu::class);
     }
+
+    public function recipes()
+    {
+        return $this->belongsToMany(Recipe::class);
+    }
 }
