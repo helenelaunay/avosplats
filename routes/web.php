@@ -50,3 +50,4 @@ Route::put('meal/updateRecipeMeal', [App\Http\Controllers\MealController::class,
 Route::get('recipe/index', [App\Http\Controllers\RecipeController::class, 'index'])->name('indexRecipe');
 Route::get('recipe/create', [App\Http\Controllers\RecipeController::class, 'create'])->name('createRecipe');
 Route::post('recipe/store', [App\Http\Controllers\RecipeController::class, 'store'])->name('storeRecipe');
+Route::get('recipe/show', [App\Http\Controllers\RecipeController::class, 'show'])->name('showRecipe');

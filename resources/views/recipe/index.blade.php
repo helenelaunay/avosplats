@@ -33,7 +33,11 @@
                         <label class="form-check-label" for="flexRadioDefault1">
                             {{ $recipe->nameRecipe }}
                         </label>
-                        <p><a href="">Voir la recette</a></p>
+                        <form action="{{ route('showRecipe') }}">
+                            <input type="hidden" value="{{ $recipe->id }}" name="recipe_id">
+                            <button type="submit">Voir la recette</button>
+                        </form>
+
 
                     </div>
                 @endforeach

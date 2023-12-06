@@ -62,9 +62,10 @@ class RecipeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Request $request)
     {
-        //
+        $recipes = Recipe::where("id", "=", $request->recipe_id)->get();
+        return view('recipe/show', compact('recipes'));
     }
 
     /**
