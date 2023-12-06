@@ -7,14 +7,25 @@ use Illuminate\Http\Request;
 
 class MealController extends Controller
 {
-public function addRecipeMeal(Request $request) {
-$meal = Meal::find($request->meal_id);
+    public function addRecipeMeal(Request $request)
+    {
+        $meal = Meal::find($request->meal_id);
 
-$meal->update([
-    'recipe_id' => $request->recipe_id
-]);
-$meal->save();
+        $meal->recipe_id = $request->recipe_id;
 
-return redirect()->route('home')->with('message', 'Recette ajoutée');
-}
+        $meal->save();
+
+        return redirect()->route('home')->with('message', 'Recette ajoutée');
+    }
+
+    public function updateRecipeMeal(Request $request)
+    {
+        $meal = Meal::find($request->meal_id);
+
+        $meal->recipe_id = null;
+
+        $meal->save();
+
+        return redirect()->route('home')->with('message', 'Votre recette a été retirée');
+    }
 }

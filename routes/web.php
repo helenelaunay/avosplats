@@ -44,6 +44,7 @@ Route::delete('menu/destroy/{idMenu}', [App\Http\Controllers\MenuController::cla
 
 //Route Meal
 Route::post('meal/addRecipeMeal', [App\Http\Controllers\MealController::class, 'addRecipeMeal'])->name('addRecipeMeal');
+Route::put('meal/updateRecipeMeal', [App\Http\Controllers\MealController::class, 'updateRecipeMeal'])->name('updateRecipeMeal');
 
 // Route Recipe
 Route::get('recipe/index', [App\Http\Controllers\RecipeController::class, 'index'])->name('indexRecipe');

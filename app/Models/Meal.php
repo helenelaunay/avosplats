@@ -9,6 +9,8 @@ class Meal extends Model
 {
     use HasFactory;
 
+    protected $with = ['recipe'];
+
     protected $fillable = [
         'nameMeal',
     ];
@@ -23,8 +25,8 @@ class Meal extends Model
         return $this->belongsToMany(Menu::class);
     }
 
-    public function recipes()
+    public function recipe()
     {
-        return $this->belongsToMany(Recipe::class);
+        return $this->belongsTo(Recipe::class);
     }
 }

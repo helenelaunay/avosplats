@@ -27,7 +27,7 @@
                 </div>
                 <div>
                     <div>
-                        <img src= "url(http://[::1]:5173/public/images/screen-menu.png)" alt="">
+                        <img src="{{ asset('images/screen-menu.png') }}" alt="">
                     </div>
 
                 </div>
