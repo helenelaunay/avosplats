@@ -103,6 +103,7 @@
                             @endguest
                         </ul>
                     </div>
+                    <a href="{{ redirect()->back() }}">Retour</a>
                 </div>
             </nav>
         </header>

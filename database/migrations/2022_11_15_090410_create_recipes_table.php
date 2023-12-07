@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('recipes', function (Blueprint $table) {
             $table->id();
             $table->string('nameRecipe');
-            $table->string('photoRecipe');
+            $table->string('photoRecipe')->default('default_recipe.jpg');
             $table->text('contentRecipe');
             $table->boolean('checkedRecipe');
             $table->timestamps();

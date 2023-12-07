@@ -4,13 +4,14 @@
     <div><a href="{{ route('createMenu') }}">Créer un menu <i class="fa-solid fa-circle-plus"></i></a></div>
     <div>
         @foreach ($menus as $menu)
+        @dump($menu->id)
             <h3>{{ $menu->nameMenu }}</h3>
             @foreach ($menu->meals as $meal)
                 <p>{{ $meal->nameMeal }}</p>
 
                 @if ($meal->recipe_id != null)
                     <p>{{ $meal->recipe->nameRecipe }}</p>
-                    <form action="{{ route('updateRecipeMeal')}}" method="POST">
+                    <form action="{{ route('updateRecipeMeal') }}" method="POST">
                         @csrf
                         @method('PUT')
                         <input type="hidden" value="{{ $meal->id }}" name="meal_id">
@@ -34,9 +35,9 @@
                 <input type="hidden" value="{{ $menu->user_id }}" name="user_id">
                 <button type="submit"><i class="fa-regular fa-trash-can"></i></button>
             </form>
-            <i class="fa-regular fa-folder-open"></i>
         @endforeach
 
+<div><a href="{{ route('recipeByUser', $user->id)}}">Mes recettes</a></div>
 
     </div>
 @endsection

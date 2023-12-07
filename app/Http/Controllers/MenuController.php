@@ -7,6 +7,7 @@ use App\Models\Meal;
 use App\Models\Menu;
 use App\Models\Recipe;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class MenuController extends Controller
@@ -41,6 +42,15 @@ class MenuController extends Controller
             'nameMenu' => $request->nameMenu,
             'user_id' => auth::user()->id, 
         ]);
+
+        $meals = Meal::get();
+        foreach ($meals as $meal) {
+            DB::table('meals_menus')->insert([
+                'meal_id' => $meal->id,
+                'menu_id' => $menu->id
+            ]);            
+            
+        }
         return redirect()->route('home')->with('message', 'Votre menu a bien été créé !');
     }
 

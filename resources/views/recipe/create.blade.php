@@ -46,7 +46,8 @@
 
                 <button type="submit" class="btn btn-primary mb-3">Ajouter</button>
             </form>
-            <p>Votre recette devra être validée par l'administrateur avant d'être active dans la liste des recettes !</p>
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <p>Dans l'attente de sa validation par l'administrateur, votre recette ne sera pas visible dans la liste des recettes !</p>
         </div>
 
         @endsection

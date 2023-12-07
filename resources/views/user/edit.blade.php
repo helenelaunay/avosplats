@@ -18,12 +18,12 @@
 
                     <div class="form-group">
                         <label for="photo">Nouveau pseudo</label>
-                        <input required type="text" class="form-control mb-3" placeholder="modifier" name="pseudo"
+                        <input type="text" class="form-control mb-3" placeholder="modifier" name="pseudo"
                             value="{{ $user->pseudo }}" id="pseudo">
                     </div>
                     <div class="form-group">
                         <label for="image">Nouvelle photo de profil</label>
-                        <input required type="file" class="form-control mb-3" placeholder="modifier" name="photo"
+                        <input type="file" class="form-control mb-3" placeholder="modifier" name="photo"
                             value="{{ $user->photo }}" id="photo">
                     </div>
 

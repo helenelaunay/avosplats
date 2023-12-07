@@ -18,8 +18,7 @@ class RecipeController extends Controller
         $meal_id = $request->meal_id;
         $users = User::get();
         $recipes = Recipe::where('checkedRecipe', '=', true)->get();
-        return view('recipe/index', compact('recipes', 'meal_id'));
-
+        return view('recipe/index', compact('recipes', 'meal_id', 'users'));
     }
 
     /**
@@ -36,9 +35,9 @@ class RecipeController extends Controller
      */
     public function store(Request $request)
     {
-            
+
         $users = User::get();
-        
+
         $request->validate([
             'nameRecipe' => 'required|max:150',
             'photoRecipe' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
@@ -49,39 +48,73 @@ class RecipeController extends Controller
         $request['photoRecipe']->move(public_path('photos_des_recettes'), $photoRecipe);
 
         $recipes = Recipe::create([
-            'nameRecipe' => $request->nameRecipe,        
+            'nameRecipe' => $request->nameRecipe,
             'photoRecipe' => $photoRecipe,
             'contentRecipe' => $request->contentRecipe,
             'checkedRecipe' => false,
-            'user_id' => auth::user()->id 
+            'user_id' => auth::user()->id
         ]);
         return redirect()->route('indexRecipe')->with('message', 'Votre recette a bien été créée, elle est en attente de validation !');
     }
-    
+
 
     /**
      * Display the specified resource.
      */
-    public function show(Request $request)
+    public function show(Recipe $recipe, $id)
     {
-        $recipes = Recipe::where("id", "=", $request->recipe_id)->get();
-        return view('recipe/show', compact('recipes'));
+
+        $recipe = Recipe::find($id);
+
+        return view('recipe/show', compact('recipe'));
     }
+
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Recipe $recipe, $id)
     {
-        //
+        $recipe = Recipe::find($id);
+        return view('recipe/edit', compact('recipe'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+
+        $request->validate([
+            'nameRecipe' => 'required|max:150',
+            'photoRecipe' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'contentRecipe' => 'required'
+        ]);
+
+        $recipe = Recipe::find($id);
+        $recipe->nameRecipe = $request->input('nameRecipe');
+        $recipe->contentRecipe = $request->input('contentRecipe');
+
+        if ($request->hasFile('photoRecipe')) {
+
+            // on supprime l'image actuelle si ce n'est pas celle par défaut 
+            if (public_path('photos_des_recettes' . '/' . $recipe->photoRecipe)) {
+                if ($request->file('photoRecipe') !== 'default_recipe.jpg') {
+                    $photoRecipe = time() . '.' . $request['photoRecipe']->extension();
+                    $recipe->photoRecipe = $photoRecipe;
+                    $request['photoRecipe']->move(public_path('photos_des_recettes'), $photoRecipe);
+                } else {
+                    unlink(public_path('photos_des_recettes' . '/' . $recipe->photoRecipe));
+                }
+            }
+        }
+
+        $recipe->checkedRecipe = false;
+        $recipe->user_id = auth::user()->id;
+
+        $recipe->save();
+
+        return redirect()->route('home')->with('message', 'Votre recette a bien été modifiée, elle est en attente de validation.');
     }
 
     /**

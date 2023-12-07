@@ -34,6 +34,7 @@ Route::put('user/update/{user}', [App\Http\Controllers\UserController::class, 'u
 Route::delete('user/destroy/{user}', [App\Http\Controllers\UserController::class, 'destroy'])->name('destroyUser');
 Route::get('user/editPassword/{user}', [App\Http\Controllers\UserController::class, 'editPassword'])->name('editPasswordUser');
 Route::put('user/updatePassword/{user}', [App\Http\Controllers\UserController::class, 'updatePassword'])->name('updatePasswordUser');
+Route::get('user/recipeByUser/{id}', [App\Http\Controllers\UserController::class, 'recipeByUser'])->name('recipeByUser');
 
 // Route Menu
 Route::get('menu/create', [App\Http\Controllers\MenuController::class, 'create'])->name('createMenu');
@@ -50,4 +51,6 @@ Route::put('meal/updateRecipeMeal', [App\Http\Controllers\MealController::class,
 Route::get('recipe/index', [App\Http\Controllers\RecipeController::class, 'index'])->name('indexRecipe');
 Route::get('recipe/create', [App\Http\Controllers\RecipeController::class, 'create'])->name('createRecipe');
 Route::post('recipe/store', [App\Http\Controllers\RecipeController::class, 'store'])->name('storeRecipe');
-Route::get('recipe/show', [App\Http\Controllers\RecipeController::class, 'show'])->name('showRecipe');
+Route::get('recipe/show/{id}', [App\Http\Controllers\RecipeController::class, 'show'])->name('showRecipe');
+Route::get('recipe/edit/{id}', [App\Http\Controllers\RecipeController::class, 'edit'])->name('editRecipe');
+Route::put('recipe/update/{id}', [App\Http\Controllers\RecipeController::class, 'update'])->name('updateRecipe');

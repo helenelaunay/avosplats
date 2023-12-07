@@ -29,22 +29,23 @@
                 @method('POST')
                 @foreach ($recipes as $recipe)
                     <div class="form-check">
+
                         <input class="form-check-input" type="radio" name="recipe_id" value="{{ $recipe->id }}" id="flexRadioDefault1">
                         <label class="form-check-label" for="flexRadioDefault1">
                             {{ $recipe->nameRecipe }}
+
                         </label>
-                        <form action="{{ route('showRecipe') }}">
-                            <input type="hidden" value="{{ $recipe->id }}" name="recipe_id">
-                            <button type="submit">Voir la recette</button>
-                        </form>
-
-
+                        <a href="{{ route('showRecipe', $recipe->id) }}">Voir la recette</a>
                     </div>
                 @endforeach
+
                 <input type="hidden" value="{{ $meal_id }}" name="meal_id">
                 <div>
                     <button type="submit">Ajouter à mon menu</button>
                 </div>
+
+
+                
             </form>
 
 

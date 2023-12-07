@@ -27,6 +27,6 @@ class HomeController extends Controller
         $user = auth()->user();
         $menus = Menu::where("user_id", "=", $user->id)->latest()->take(2)->get();
 
-        return view('home', compact('menus'));
+        return view('home', compact('menus', 'user'));
     }
 }

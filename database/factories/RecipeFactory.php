@@ -20,7 +20,7 @@ class RecipeFactory extends Factory
     {
         return [
             'nameRecipe' => $this->faker->sentence(rand(3,6),true),
-            'photoRecipe' => 'image_recipe_' . rand(1,9) . '.jpg',
+            'photoRecipe' => 'default_recipe.jpg',
             'contentRecipe' => $this->faker->paragraph(rand(3,7)),
             'checkedRecipe' => true, // Toujours définir comme validée,
             'user_id' => rand(1, User::count()), 

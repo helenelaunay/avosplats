@@ -18,7 +18,5 @@ class MenuSeeder extends Seeder
             'nameMenu' => 'Mon menu du lundi 27/11 au dimanche 03/12',
             'user_id' => 2,
         ]);
-
-        Menu::factory(20)->create();
     }
 }
