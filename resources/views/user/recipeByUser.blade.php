@@ -30,6 +30,11 @@
                         <p>{{ $recipe->nameRecipe }}</p>
                         <a href="{{ route('showRecipe', $recipe->id) }}">Voir</a>
                         <a href="{{ route('editRecipe', $recipe->id) }}">Modifier</a>
+                        <form id="deleteUserForm" action="{{ route('destroyRecipe', $recipe->id) }}" method="post">
+                            @csrf
+                            @method('delete')
+                            <button type="submit">Supprimer</button>
+                        </form>
                     </div>
                 @endforeach
 

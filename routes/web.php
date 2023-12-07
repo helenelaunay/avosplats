@@ -54,3 +54,4 @@ Route::post('recipe/store', [App\Http\Controllers\RecipeController::class, 'stor
 Route::get('recipe/show/{id}', [App\Http\Controllers\RecipeController::class, 'show'])->name('showRecipe');
 Route::get('recipe/edit/{id}', [App\Http\Controllers\RecipeController::class, 'edit'])->name('editRecipe');
 Route::put('recipe/update/{id}', [App\Http\Controllers\RecipeController::class, 'update'])->name('updateRecipe');
+Route::delete('recipe/destroy/{id}', [App\Http\Controllers\RecipeController::class, 'destroy'])->name('destroyRecipe');

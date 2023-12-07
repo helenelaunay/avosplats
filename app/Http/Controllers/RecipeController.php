@@ -120,8 +120,15 @@ class RecipeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Recipe $recipe, $id)
     {
-        //
+
+        $recipe = Recipe::find($id);
+        $recipe->delete();
+        //suppression de la photo de la recette si elle n'est pas 'default_recipe.jpg'
+        if ($recipe->photo !== 'default_recipe.jpg') {
+            unlink(public_path('photos_des_recettes' . '/' . $recipe->photoRecipe));
+        }
+        return redirect()->route('home')->with('message', 'La recette a bien été supprimée.');
     }
 }
