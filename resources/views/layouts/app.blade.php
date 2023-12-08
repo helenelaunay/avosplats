@@ -57,18 +57,21 @@
                                 @if (Route::has('login'))
                                     <div>
                                         @auth
-                                            <a href="{{ url('/home') }}">Mon profil</a>
+                                            <a href="{{ url('/home') }}">
+                                                <img id="photo_profil" class="rounded-circle" src="{{ asset('photos_de_profil/' . Auth::user()->photo) }}" alt="Photo de profil">
+                                            </a>
                                         @else
                                             <div>
                                                 <a href="#">A propos</a>
                                                 <a href="#">Contact</a>
                                             </div>
-                                            <i class="fa-solid fa-circle-user"></i>
+
                                             <a href="{{ route('login') }}">Se connecter</a>
 
                                             @if (Route::has('register'))
                                                 <a href="{{ route('register') }}">Créer un compte</a>
                                             @endif
+                                        </li>
                                         @endauth
                                     </div>
                                 @endif

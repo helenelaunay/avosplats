@@ -2,11 +2,11 @@
 
     @section('content')
         <section id="hero">
-<h1>Retrouvez vos menus et vos recettes en 1 clic sur tous vos écrans</h1>
-<div class="d-flex flex-column">
-    <a id="btn-hero" href="{{ route('register') }}">Je m'inscris !</a>
-    <a href="{{ route('login') }}">Déjà inscrit ? Cliquez ici pour vous connecter</a>
-</div>
+            <h1>Retrouvez vos menus et vos recettes en 1 clic sur tous vos écrans</h1>
+            <div class="d-flex flex-column">
+                <a id="btn-hero" href="{{ route('register') }}">Je m'inscris !</a>
+                <a href="{{ route('login') }}">Déjà inscrit ? Cliquez ici pour vous connecter</a>
+            </div>
 
         </section>
 
@@ -25,24 +25,23 @@
                         </ul>
                     </div>
                 </div>
-                <div>
-                    <div>
-                        <img src="{{ asset('images/screen-menu.png') }}" alt="">
-                    </div>
 
-                </div>
+
+                <img src="{{ asset('images/screen-menu.png') }}" class="img-fluid" alt="">
+
+
             </div>
 
-            <div>
-                <div>
-                    <img src="" alt="">
-                </div>
-                <div>
+            <div id="section-infos-container2">
+
+                <img src="{{ asset('images/recette-infos.jpg') }}" class="img-fluid" alt="">
+
+                <div id="section-infos-bloc2">
                     <div>
                         <h2>Ajoutez vos recettes ou découvrez celles de notre communauté</h2>
                     </div>
                     <div>
-                        <p>Retrouvez un large choix de recettes simples et rapides du quotidien ou plus élaborées, 
+                        <p>Retrouvez un large choix de recettes simples et rapides du quotidien ou plus élaborées,
                             des recettes pour des évènements festifs, etc. </p>
                     </div>
                 </div>
@@ -53,8 +52,8 @@
                 </div>
                 <div>
                     <p>En faisant vos courses, en attendant le bus, à la pause déjeuner au travail ou encore pendant
-                         l'activité sportive de votre enfant, consultez votre menu de la semaine sur 
-                         votre smartphone, votre tablette ou encore votre ordinateur !</p>
+                        l'activité sportive de votre enfant, consultez votre menu de la semaine sur
+                        votre smartphone, votre tablette ou encore votre ordinateur !</p>
                 </div>
                 <img src="" alt="">
                 <img src="" alt="">
@@ -99,19 +98,31 @@
         <section id="pre-footer">
             <div id="container-pre-footer">
                 <div><i class="fa-solid fa-hands-holding"></i></div>
-                <div><h4>Collaboratif</h4></div>
-                <div><p class="text-center">Profitez d’une quantité infinie de combinaison de recettes pour vos menus.</p></div>
+                <div>
+                    <h4>Collaboratif</h4>
+                </div>
+                <div>
+                    <p class="text-center">Profitez d’une quantité infinie de combinaison de recettes pour vos menus.</p>
+                </div>
             </div>
             <div id="container-pre-footer">
                 <div><i class="fa-solid fa-forward-fast"></i></div>
-                <div><h4>Gain de temps</h4></div>
-                <div><p class="text-center">Retrouvez vos recettes et votre menu de la semaine au même endroit, en un clic.</p></div>
+                <div>
+                    <h4>Gain de temps</h4>
+                </div>
+                <div>
+                    <p class="text-center">Retrouvez vos recettes et votre menu de la semaine au même endroit, en un clic.
+                    </p>
+                </div>
             </div>
             <div id="container-pre-footer">
                 <div><i class="fa-solid fa-earth-europe"></i></div>
-                <div><h4>Disponible partout</h4></div>
-                <div><p class="text-center">A vos plats ! est accessible sur tous vos écrans pour vous simplifier la vie.</p></div>
+                <div>
+                    <h4>Disponible partout</h4>
+                </div>
+                <div>
+                    <p class="text-center">A vos plats ! est accessible sur tous vos écrans pour vous simplifier la vie.</p>
+                </div>
             </div>
         </section>
-        @endsection
-
+    @endsection
