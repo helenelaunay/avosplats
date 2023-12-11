@@ -43,7 +43,7 @@ Route::get('menu/edit', [App\Http\Controllers\MenuController::class, 'edit'])->n
 Route::put('menu/update/{idMenu}', [App\Http\Controllers\MenuController::class, 'update'])->name('updateMenu');
 Route::delete('menu/destroy/{idMenu}', [App\Http\Controllers\MenuController::class, 'destroy'])->name('destroyMenu');
 
-//Route Meal
+// Route Meal
 Route::post('meal/addRecipeMeal', [App\Http\Controllers\MealController::class, 'addRecipeMeal'])->name('addRecipeMeal');
 Route::put('meal/updateRecipeMeal', [App\Http\Controllers\MealController::class, 'updateRecipeMeal'])->name('updateRecipeMeal');
 
@@ -55,3 +55,21 @@ Route::get('recipe/show/{id}', [App\Http\Controllers\RecipeController::class, 's
 Route::get('recipe/edit/{id}', [App\Http\Controllers\RecipeController::class, 'edit'])->name('editRecipe');
 Route::put('recipe/update/{id}', [App\Http\Controllers\RecipeController::class, 'update'])->name('updateRecipe');
 Route::delete('recipe/destroy/{id}', [App\Http\Controllers\RecipeController::class, 'destroy'])->name('destroyRecipe');
+
+
+// Route BackOffice
+Route::get('BackOffice/index', [App\Http\Controllers\BackOffice\BackOfficeController::class, 'index'])->name('indexBackOffice')->middleware('CheckRole');
+
+// Route UserBackOffice 
+Route::get('UserBackOffice/index', [App\Http\Controllers\BackOffice\UserBackOfficeController::class, 'index'])->name('indexUserBackOffice')->middleware('CheckRole');
+Route::delete('UserBackOffice/destroy/{id}', [App\Http\Controllers\BackOffice\UserBackOfficeController::class, 'destroy'])->name('destroyUserBackOffice')->middleware('CheckRole');
+
+// Route RecipeBackoffice
+Route::get('RecipeBackOffice/index', [App\Http\Controllers\BackOffice\RecipeBackOfficeController::class, 'index'])->name('indexRecipeBackOffice')->middleware('CheckRole');
+Route::get('RecipeBackOffice/edit/{id}', [App\Http\Controllers\BackOffice\RecipeBackOfficeController::class, 'edit'])->name('editRecipeBackOffice')->middleware('CheckRole');
+Route::put('RecipeBackOffice/update/{id}', [App\Http\Controllers\BackOffice\RecipeBackOfficeController::class, 'update'])->name('updateRecipeBackOffice')->middleware('CheckRole');
+Route::delete('RecipeBackOffice/destroy/{id}', [App\Http\Controllers\BackOffice\RecipeBackOfficeController::class, 'destroy'])->name('destroyRecipeBackOffice')->middleware('CheckRole');
+
+
+
+

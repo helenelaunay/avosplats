@@ -91,6 +91,11 @@
                                             href="{{ route('editUser', $user = Auth::user()) }}">{{ __('Modifier mes informations') }}</a>
                                         <a class="dropdown-item"
                                             href="{{ route('editPasswordUser', $user = Auth::user()) }}">{{ __('Modifier mon mot de passe') }}</a>
+                                        {{-- @if ( $user = 'role_id' == 2) --}}
+                                        <a class="dropdown-item" href="{{ route('indexBackOffice')}}">{{ __('Espace Administrateur') }}</a>
+                                                                            
+                                        {{-- @endif --}}
+
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

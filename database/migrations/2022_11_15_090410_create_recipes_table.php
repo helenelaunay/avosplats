@@ -19,7 +19,8 @@ return new class extends Migration
             $table->boolean('checkedRecipe');
             $table->timestamps();
 
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
         });
     }
 

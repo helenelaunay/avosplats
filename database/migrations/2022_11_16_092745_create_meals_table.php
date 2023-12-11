@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nameMeal');
             $table->timestamps();
 
-            $table->foreignId('recipe_id')->nullable()->constrained();
+            $table->foreignId('recipe_id')->nullable()->constrained()->onDelete('set null');
         });
     }
 

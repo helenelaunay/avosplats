@@ -4,7 +4,6 @@
     <div><a href="{{ route('createMenu') }}">Créer un menu <i class="fa-solid fa-circle-plus"></i></a></div>
     <div>
         @foreach ($menus as $menu)
-        @dump($menu->id)
             <h3>{{ $menu->nameMenu }}</h3>
             @foreach ($menu->meals as $meal)
                 <p>{{ $meal->nameMeal }}</p>

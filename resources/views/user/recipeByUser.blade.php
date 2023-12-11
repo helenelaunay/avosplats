@@ -25,27 +25,19 @@
 
         <div>
 
-                @foreach ($recipes as $recipe)
-@dump($recipe->id)
-                        <p>{{ $recipe->nameRecipe }}</p>
-                        <a href="{{ route('showRecipe', $recipe->id) }}">Voir</a>
-                        <a href="{{ route('editRecipe', $recipe->id) }}">Modifier</a>
-                        <form id="deleteUserForm" action="{{ route('destroyRecipe', $recipe->id) }}" method="post">
-                            @csrf
-                            @method('delete')
-                            <button type="submit">Supprimer</button>
-                        </form>
-                    </div>
-                @endforeach
-
-
-
-                
-            </form>
-
-
-
+            @foreach ($recipes as $recipe)
+                <p>{{ $recipe->nameRecipe }}</p>
+                <a href="{{ route('showRecipe', $recipe->id) }}">Voir</a>
+                <a href="{{ route('editRecipe', $recipe->id) }}">Modifier</a>
+                <form id="deleteUserForm" action="{{ route('destroyRecipe', $recipe->id) }}" method="post">
+                    @csrf
+                    @method('delete')
+                    <button type="submit">Supprimer</button>
+                </form>
         </div>
+        @endforeach
+
+
 
         <div>
             <a href=" {{ route('createRecipe') }}">Ajouter une nouvelle recette</a>
