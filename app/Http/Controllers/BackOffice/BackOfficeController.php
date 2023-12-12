@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\BackOffice;
 
+use App\Models\Role;
 use App\Models\Recipe;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -16,6 +17,8 @@ class BackOfficeController extends Controller
     {
         $users = User::get();
         $recipes = Recipe::get();
-        return view('BackOffice/index', compact('users', 'recipes'));
+        $roles = Role::get();
+        $recipesToCheck = Recipe::where('checkedRecipe', '=', 0)->get();
+        return view('BackOffice/index', compact('users', 'recipes', 'roles','recipesToCheck'));
     }
 }

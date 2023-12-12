@@ -117,7 +117,7 @@
         </header>
             <div class="container-fluid text-center">
                 @if (session()->has('message'))
-                    <p class="alert alert-success">{{ session()->get('message') }}</p>
+                    <p class="alert alert-success pt-5">{{ session()->get('message') }}</p>
                 @endif
                 @if ($errors->any())
                     <div class="alert alert-danger">

@@ -62,6 +62,7 @@ Route::get('BackOffice/index', [App\Http\Controllers\BackOffice\BackOfficeContro
 
 // Route UserBackOffice 
 Route::get('UserBackOffice/index', [App\Http\Controllers\BackOffice\UserBackOfficeController::class, 'index'])->name('indexUserBackOffice')->middleware('CheckRole');
+Route::put('UserBackOffice/update/{id}', [App\Http\Controllers\BackOffice\UserBackOfficeController::class, 'update'])->name('updateUserBackOffice')->middleware('CheckRole');
 Route::delete('UserBackOffice/destroy/{id}', [App\Http\Controllers\BackOffice\UserBackOfficeController::class, 'destroy'])->name('destroyUserBackOffice')->middleware('CheckRole');
 
 // Route RecipeBackoffice
@@ -69,7 +70,7 @@ Route::get('RecipeBackOffice/index', [App\Http\Controllers\BackOffice\RecipeBack
 Route::get('RecipeBackOffice/edit/{id}', [App\Http\Controllers\BackOffice\RecipeBackOfficeController::class, 'edit'])->name('editRecipeBackOffice')->middleware('CheckRole');
 Route::put('RecipeBackOffice/update/{id}', [App\Http\Controllers\BackOffice\RecipeBackOfficeController::class, 'update'])->name('updateRecipeBackOffice')->middleware('CheckRole');
 Route::delete('RecipeBackOffice/destroy/{id}', [App\Http\Controllers\BackOffice\RecipeBackOfficeController::class, 'destroy'])->name('destroyRecipeBackOffice')->middleware('CheckRole');
-
+Route::put('RecipeBackOffice/checked/{id}', [App\Http\Controllers\BackOffice\RecipeBackOfficeController::class, 'checked'])->name('checkedRecipeBackOffice')->middleware('CheckRole');
 
 
 

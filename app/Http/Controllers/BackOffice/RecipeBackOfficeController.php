@@ -15,8 +15,9 @@ class RecipeBackOfficeController extends Controller
     public function index()
     {
         $recipes = Recipe::get();
+        $recipesToCheck = Recipe::where('checkedRecipe', '=', 0)->get();
         $clickedRecipeLink = true;
-        return view('BackOffice/index', compact('recipes', 'clickedRecipeLink'));
+        return view('BackOffice/index', compact('recipes', 'clickedRecipeLink', 'recipesToCheck'));
     }
     /**
      * Store a newly created resource in storage.
@@ -93,9 +94,13 @@ class RecipeBackOfficeController extends Controller
         return redirect()->route('indexBackOffice')->with('message', 'La recette a bien été supprimée.');
     }
 
-    public function checked()
+    public function checked($id)
     {
-        $recipes = Recipe::where('checkedRecipe', '=', false)->get();
-        return view('BackOffice/index', compact('recipes'));
+        $recipe = Recipe::find($id);
+        $recipe->checkedRecipe = true;
+
+        $recipe->save();
+
+        return redirect()->route('indexBackOffice')->with('message', 'La recette a bien été validée.');
     }
 }
