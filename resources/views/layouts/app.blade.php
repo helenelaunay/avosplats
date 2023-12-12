@@ -63,7 +63,7 @@
                                         @else
                                             <div>
                                                 <a href="#">A propos</a>
-                                                <a href="#">Contact</a>
+                                                <a href="{{ route('editFormContact') }}">Contact</a>
                                             </div>
 
                                             <a href="{{ route('login') }}">Se connecter</a>
@@ -77,7 +77,7 @@
                                 @endif
                             @else
                                 <a href="#">A propos</a>
-                                <a href="#">Contact</a>
+                                <a href="{{ route('editFormContact') }}">Contact</a>
                                 <a href="{{ url('/home') }}"><img id="photo_profil" class="rounded-circle"
                                         src="{{ asset('photos_de_profil/' . Auth::user()->photo) }}"
                                         alt="Photo de profil"></a>
@@ -91,10 +91,10 @@
                                             href="{{ route('editUser', $user = Auth::user()) }}">{{ __('Modifier mes informations') }}</a>
                                         <a class="dropdown-item"
                                             href="{{ route('editPasswordUser', $user = Auth::user()) }}">{{ __('Modifier mon mot de passe') }}</a>
-                                        {{-- @if ( $user = 'role_id' == 2) --}}
+                                        @if (Auth::user()->role_id == 2)
                                         <a class="dropdown-item" href="{{ route('indexBackOffice')}}">{{ __('Espace Administrateur') }}</a>
                                                                             
-                                        {{-- @endif --}}
+                                        @endif
 
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -117,7 +117,7 @@
         </header>
             <div class="container-fluid text-center">
                 @if (session()->has('message'))
-                    <p class="alert alert-success pt-5">{{ session()->get('message') }}</p>
+                    <p class="alert alert-success mt-3">{{ session()->get('message') }}</p>
                 @endif
                 @if ($errors->any())
                     <div class="alert alert-danger">
@@ -148,7 +148,7 @@
                     <nav>
                         <ul class="list-unstyled text-center">
                             <li><a class="text-decoration-none" href="">A propos</a></li>
-                            <li><a class="text-decoration-none" href="">Contact</a></li>
+                            <li><a class="text-decoration-none" href="{{ route('editFormContact') }}">Contact</a></li>
                         </ul>
                     </nav>
                 </div>

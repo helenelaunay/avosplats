@@ -28,6 +28,10 @@ Auth::routes();
 // Route Home
 Route::get('/home',[App\Http\Controllers\HomeController::class,'index'])->name('home');
 
+// Route Contact
+Route::get('/contact', [App\Http\Controllers\ContactController::class,'editForm'])->name('editFormContact');
+Route::get('/contact/submitForm', [App\Http\Controllers\ContactController::class,'submitForm'])->name('submitFormContact');
+
 // Route User
 Route::get('user/edit/{user}', [App\Http\Controllers\UserController::class, 'edit'])->name('editUser');
 Route::put('user/update/{user}', [App\Http\Controllers\UserController::class, 'update'])->name('updateUser');
@@ -65,7 +69,7 @@ Route::get('UserBackOffice/index', [App\Http\Controllers\BackOffice\UserBackOffi
 Route::put('UserBackOffice/update/{id}', [App\Http\Controllers\BackOffice\UserBackOfficeController::class, 'update'])->name('updateUserBackOffice')->middleware('CheckRole');
 Route::delete('UserBackOffice/destroy/{id}', [App\Http\Controllers\BackOffice\UserBackOfficeController::class, 'destroy'])->name('destroyUserBackOffice')->middleware('CheckRole');
 
-// Route RecipeBackoffice
+// Route RecipeBackOffice
 Route::get('RecipeBackOffice/index', [App\Http\Controllers\BackOffice\RecipeBackOfficeController::class, 'index'])->name('indexRecipeBackOffice')->middleware('CheckRole');
 Route::get('RecipeBackOffice/edit/{id}', [App\Http\Controllers\BackOffice\RecipeBackOfficeController::class, 'edit'])->name('editRecipeBackOffice')->middleware('CheckRole');
 Route::put('RecipeBackOffice/update/{id}', [App\Http\Controllers\BackOffice\RecipeBackOfficeController::class, 'update'])->name('updateRecipeBackOffice')->middleware('CheckRole');

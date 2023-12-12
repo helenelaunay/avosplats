@@ -16,7 +16,7 @@ class MealSeeder extends Seeder
        // Création des différents repas
        Meal::create([
         'nameMeal' => 'lundi midi',
-        'recipe_id' => rand(1,60) 
+        'recipe_id' => null 
        ]);
 
        Meal::create([
@@ -31,27 +31,27 @@ class MealSeeder extends Seeder
 
        Meal::create([
         'nameMeal' => 'mardi soir',
-        'recipe_id' => rand(1,60)  
+        'recipe_id' => null  
        ]);
 
        Meal::create([
         'nameMeal' => 'mercredi midi',
-        'recipe_id' => rand(1,60)  
+        'recipe_id' => null  
        ]);
 
        Meal::create([
         'nameMeal' => 'mercredi soir',
-        'recipe_id' => rand(1,60)  
+        'recipe_id' => null  
        ]);
 
        Meal::create([
         'nameMeal' => 'jeudi midi',
-        'recipe_id' => rand(1,60)  
+        'recipe_id' => null  
        ]);
 
        Meal::create([
         'nameMeal' => 'jeudi soir',
-        'recipe_id' => rand(1,60)  
+        'recipe_id' => null  
        ]);
 
        Meal::create([
@@ -66,12 +66,12 @@ class MealSeeder extends Seeder
 
        Meal::create([
         'nameMeal' => 'samedi midi',
-        'recipe_id' => rand(1,60)  
+        'recipe_id' => null  
        ]);
 
        Meal::create([
         'nameMeal' => 'samedi soir',
-        'recipe_id' => rand(1,60)  
+        'recipe_id' => null  
        ]);
 
        Meal::create([
@@ -81,7 +81,7 @@ class MealSeeder extends Seeder
 
        Meal::create([
         'nameMeal' => 'dimanche soir',
-        'recipe_id' => rand(1,60)  
+        'recipe_id' => null  
        ]);
     }
 }
