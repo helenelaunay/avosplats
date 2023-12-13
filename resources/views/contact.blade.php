@@ -27,7 +27,7 @@
                 <textarea class="form-control" id="message" name="message" rows="5" placeholder="Ecrivez votre message ici"></textarea>
             </div>
             <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="acceptTerms" name="acceptTerms">
+                <input type="checkbox" class="form-check-input" id="acceptTerms" name="acceptTerms" onchange="enableSubmit()">
                 <label class="form-check-label" for="acceptTerms">J'accepte les termes et conditions</label>
             </div>
             
