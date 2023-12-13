@@ -162,7 +162,7 @@
                 </div>
             </div>
             <div id="copy" class="bg-black">
-                <p class="m-0 text-center">Copyright © 2023 | Propulsé par Hélène LAUNAY | <a class="text-decoration-none" href="">Mentions légales</a> | <a
+                <p class="m-0 text-center">Copyright © 2023 | Propulsé par Hélène LAUNAY | <a class="text-decoration-none" href="{{ url('/mentionsLegales') }}">Mentions légales</a> | <a
                     class="text-decoration-none" href="">Politiques de confidentialités</a></p>
             </div>
         </footer>

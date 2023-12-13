@@ -28,11 +28,11 @@ Auth::routes();
 // Route Home
 Route::get('/home',[App\Http\Controllers\HomeController::class,'index'])->name('home');
 
-// Route Contact
+// Routes Contact
 Route::get('/contact', [App\Http\Controllers\ContactController::class,'editForm'])->name('editFormContact');
 Route::post('/contact/submitForm', [App\Http\Controllers\ContactController::class,'submitForm'])->name('submitFormContact');
 
-// Route User
+// Routes User
 Route::get('user/edit/{user}', [App\Http\Controllers\UserController::class, 'edit'])->name('editUser');
 Route::put('user/update/{user}', [App\Http\Controllers\UserController::class, 'update'])->name('updateUser');
 Route::delete('user/destroy/{user}', [App\Http\Controllers\UserController::class, 'destroy'])->name('destroyUser');
@@ -40,18 +40,18 @@ Route::get('user/editPassword/{user}', [App\Http\Controllers\UserController::cla
 Route::put('user/updatePassword/{user}', [App\Http\Controllers\UserController::class, 'updatePassword'])->name('updatePasswordUser');
 Route::get('user/recipeByUser/{id}', [App\Http\Controllers\UserController::class, 'recipeByUser'])->name('recipeByUser');
 
-// Route Menu
+// Routes Menu
 Route::get('menu/create', [App\Http\Controllers\MenuController::class, 'create'])->name('createMenu');
 Route::post('menu/store', [App\Http\Controllers\MenuController::class, 'store'])->name('storeMenu');
 Route::get('menu/edit', [App\Http\Controllers\MenuController::class, 'edit'])->name('editMenu');
 Route::put('menu/update/{idMenu}', [App\Http\Controllers\MenuController::class, 'update'])->name('updateMenu');
 Route::delete('menu/destroy/{idMenu}', [App\Http\Controllers\MenuController::class, 'destroy'])->name('destroyMenu');
 
-// Route Meal
+// Routes Meal
 Route::post('meal/addRecipeMeal', [App\Http\Controllers\MealController::class, 'addRecipeMeal'])->name('addRecipeMeal');
 Route::put('meal/updateRecipeMeal', [App\Http\Controllers\MealController::class, 'updateRecipeMeal'])->name('updateRecipeMeal');
 
-// Route Recipe
+// Routes Recipe
 Route::get('recipe/index', [App\Http\Controllers\RecipeController::class, 'index'])->name('indexRecipe');
 Route::get('recipe/create', [App\Http\Controllers\RecipeController::class, 'create'])->name('createRecipe');
 Route::post('recipe/store', [App\Http\Controllers\RecipeController::class, 'store'])->name('storeRecipe');
@@ -64,17 +64,20 @@ Route::delete('recipe/destroy/{id}', [App\Http\Controllers\RecipeController::cla
 // Route BackOffice
 Route::get('BackOffice/index', [App\Http\Controllers\BackOffice\BackOfficeController::class, 'index'])->name('indexBackOffice')->middleware('CheckRole');
 
-// Route UserBackOffice 
+// Routes UserBackOffice 
 Route::get('UserBackOffice/index', [App\Http\Controllers\BackOffice\UserBackOfficeController::class, 'index'])->name('indexUserBackOffice')->middleware('CheckRole');
 Route::put('UserBackOffice/update/{id}', [App\Http\Controllers\BackOffice\UserBackOfficeController::class, 'update'])->name('updateUserBackOffice')->middleware('CheckRole');
 Route::delete('UserBackOffice/destroy/{id}', [App\Http\Controllers\BackOffice\UserBackOfficeController::class, 'destroy'])->name('destroyUserBackOffice')->middleware('CheckRole');
 
-// Route RecipeBackOffice
+// Routes RecipeBackOffice
 Route::get('RecipeBackOffice/index', [App\Http\Controllers\BackOffice\RecipeBackOfficeController::class, 'index'])->name('indexRecipeBackOffice')->middleware('CheckRole');
 Route::get('RecipeBackOffice/edit/{id}', [App\Http\Controllers\BackOffice\RecipeBackOfficeController::class, 'edit'])->name('editRecipeBackOffice')->middleware('CheckRole');
 Route::put('RecipeBackOffice/update/{id}', [App\Http\Controllers\BackOffice\RecipeBackOfficeController::class, 'update'])->name('updateRecipeBackOffice')->middleware('CheckRole');
 Route::delete('RecipeBackOffice/destroy/{id}', [App\Http\Controllers\BackOffice\RecipeBackOfficeController::class, 'destroy'])->name('destroyRecipeBackOffice')->middleware('CheckRole');
 Route::put('RecipeBackOffice/checked/{id}', [App\Http\Controllers\BackOffice\RecipeBackOfficeController::class, 'checked'])->name('checkedRecipeBackOffice')->middleware('CheckRole');
 
+// Route Mentions Légales et RGPD
+Route::get('/mentionsLegales', function () { return view('legal.mentionsLegales'); });
+Route::get('/rgpd', function () { return view('legal.rgpd'); });
 
 
