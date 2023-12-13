@@ -27,7 +27,15 @@
             // Retourne true si l'utilisateur clique sur Ok, false sinon sur Annuler
             return confirmation;
         }
+
+        function enableSubmit() {
+            var checkBox = document.getElementById("acceptTerms");
+            var submitBtn = document.getElementById("submitBtn");
+
+            submitBtn.disabled = !checkBox.checked;
+        }
     </script>
+
 </head>
 
 <body>

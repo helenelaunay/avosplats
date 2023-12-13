@@ -18,7 +18,7 @@ class ContactController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function submitFormContact(Request $request)
+    public function submitForm(Request $request)
     {
         // Validation des données
         $request->validate([
@@ -36,8 +36,8 @@ class ContactController extends Controller
             'message' => $request->input('message'),
         ];
 
-        Mail::to('admin@gmail.com')->send(new \App\Mail\ContactMail($data));
+        Mail::to('contact@avosplats.fr')->send(new \App\Mail\ContactMail($data));
 
-        return redirect()->route('editFormContact')->with('success', 'Votre message a été envoyé avec succès.');
+        return redirect()->route('editFormContact')->with('message', 'Votre message a bien été envoyé.');   
     }
 }

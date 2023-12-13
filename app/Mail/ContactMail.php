@@ -13,41 +13,54 @@ class ContactMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $data; // Les données que vous souhaitez passer à la vue d'e-mail
     /**
-     * Create a new message instance.
-     */
-    public function __construct()
-    {
-        //
-    }
-
-    /**
-     * Get the message envelope.
-     */
-    public function envelope(): Envelope
-    {
-        return new Envelope(
-            subject: 'Contact Mail',
-        );
-    }
-
-    /**
-     * Get the message content definition.
-     */
-    public function content(): Content
-    {
-        return new Content(
-            view: 'view.name',
-        );
-    }
-
-    /**
-     * Get the attachments for the message.
+     * Crée une nouvelle instance de message.
      *
-     * @return array<int, \Illuminate\Mail\Mailables\Attachment>
+     * @param  array  $data
+     * @return void
      */
-    public function attachments(): array
+    public function __construct($data)
     {
-        return [];
+        $this->data = $data;
     }
+
+    /**
+     * Construire le message.
+     *
+     * @return $this
+     */
+    public function build()
+    {
+        return $this->from($this->data['email'], $this->data['nom'], $this->data['prenom'])
+                    ->subject('Nouveau message de contact')
+                    ->view('email.contact'); // Nom de la vue d'e-mail
+    }
+
+
+    // /**
+    //  * Get the message envelope.
+    //  */
+    // public function envelope(): Envelope
+    // {
+    //     return new Envelope(
+    //         subject: 'Contact Mail',
+    //     );
+    // }
+
+    // /**
+    //  * Get the message content definition.
+    //  */
+    // public function content(): Content
+    // {
+    //     return new Content(
+    //         view: 'view.name',
+    //     );
+    // }
+
+
+   
+
+    
+
 }

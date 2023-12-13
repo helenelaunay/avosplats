@@ -30,7 +30,7 @@ Route::get('/home',[App\Http\Controllers\HomeController::class,'index'])->name('
 
 // Route Contact
 Route::get('/contact', [App\Http\Controllers\ContactController::class,'editForm'])->name('editFormContact');
-Route::get('/contact/submitForm', [App\Http\Controllers\ContactController::class,'submitForm'])->name('submitFormContact');
+Route::post('/contact/submitForm', [App\Http\Controllers\ContactController::class,'submitForm'])->name('submitFormContact');
 
 // Route User
 Route::get('user/edit/{user}', [App\Http\Controllers\UserController::class, 'edit'])->name('editUser');
