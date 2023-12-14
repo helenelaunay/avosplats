@@ -4,8 +4,10 @@
         <section id="hero">
             <h1 class="text-center">Retrouvez vos menus et vos recettes en 1 clic sur tous vos écrans</h1>
             <div id="hero-links" class="d-flex flex-column align-items-center justify-content-around">
-                <a id="hero-link-register" class="text-decoration-none text-center" href="{{ route('register') }}">Je m'inscris !</a>
-                <a id="hero-link-login" class="text-decoration-none text-center" href="{{ route('login') }}">Déjà inscrit ? Cliquez ici pour vous connecter</a>
+                <a id="hero-link-register" class="text-decoration-none text-center" href="{{ route('register') }}">Je m'inscris
+                    !</a>
+                <a id="hero-link-login" class="text-decoration-none text-center" href="{{ route('login') }}">Déjà inscrit ?
+                    Cliquez ici pour vous connecter</a>
             </div>
 
         </section>
@@ -27,14 +29,14 @@
                 </div>
 
 
-                <img src="{{ asset('images/screen-menu.png') }}" class="img-fluid" alt="">
+                <img src="{{ asset('images/screen-menu.webp') }}" class="img-fluid" alt="">
 
 
             </div>
 
             <div id="section-infos-container2">
 
-                <img src="{{ asset('images/recette-infos.jpg') }}" class="img-fluid" alt="">
+                <img src="{{ asset('images/recette-infos.webp') }}" class="img-fluid" alt="cuisiner">
 
                 <div id="section-infos-bloc2" class="d-flex flex-column justify-content-around">
                     <div>
@@ -46,46 +48,46 @@
                     </div>
                 </div>
             </div>
-            <div>
+            <div id="section-infos-container3">
                 <div>
                     <h2>Accédez à vos menus depuis n'importe où !</h2>
                 </div>
                 <div>
-                    <p>En faisant vos courses, en attendant le bus, à la pause déjeuner au travail ou encore pendant
+                    <p class="text-center">En faisant vos courses, en attendant le bus, à la pause déjeuner au travail ou
+                        encore pendant
                         l'activité sportive de votre enfant, consultez votre menu de la semaine sur
                         votre smartphone, votre tablette ou encore votre ordinateur !</p>
                 </div>
-                <img src="" alt="">
-                <img src="" alt="">
-                <img src="" alt="">
+                <div id="mockups-box">
+                    <div>
+                        <img src="{{ asset('images/MockUpMobile.png') }}" alt="MockUp Mobile">
+
+                    </div>
+                    <div>
+                        <img src="{{ asset('images/MockUpTablet.png') }}" alt="MockUp Tablet">
+                    </div>
+                    <div>
+                        <img src="{{ asset('images/MockUpDesktop.png') }}" alt="MockUp Desktop">
+                    </div>
+
+                </div>
             </div>
         </section>
         <section id="section-recipes">
             <div>
-                <h2>Les dernières recettes ajoutées</h2>
+                <h2 class="text-center">Les dernières recettes ajoutées</h2>
             </div>
             <div>
-                <div>
-                    <div><img src="" alt=""></div>
-                    <div>Titre de la recette</div>
+                @foreach ($latestRecipes as $recipe)
+                <div class="recipe-container">
+                    <img src="{{ asset('photos_des_recettes/' . $recipe->photoRecipe) }}" alt="Recipe Photo">
+                    <p class="text-center">{{ $recipe->nameRecipe }}</p>
                 </div>
-                <div>
-                    <div><img src="" alt=""></div>
-                    <div>Titre de la recette</div>
-                </div>
-                <div>
-                    <div><img src="" alt=""></div>
-                    <div>Titre de la recette</div>
-                </div>
-                <div>
-                    <div><img src="" alt=""></div>
-                    <div>Titre de la recette</div>
-                </div>
-            </div>
-            <div>
+            @endforeach
+
+            <div class="d-flex justify-content-center">
                 <a href="{{ route('register') }}">Découvrez toutes nos recettes</a>
             </div>
-
         </section>
 
         <section id="section-contact">

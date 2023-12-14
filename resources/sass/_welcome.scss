@@ -1,6 +1,4 @@
-@import 'variables';
-
-
+@import "variables";
 
 #hero {
     height: 40em;
@@ -36,37 +34,39 @@
             font-weight: 600;
             font-size: 1.5em;
         }
-
     }
-    
 }
 
 #section-infos {
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
 
     h2 {
         color: $orange;
         font-family: $mukta;
-        font-size: 35px;
+        font-size: 40px;
     }
-    ul, p {
+    ul,
+    p {
         color: $green;
         font-family: $lato;
+        font-size: 22px;
     }
 }
 
 #section-infos-container1 {
-    display:flex;
+    margin: 40px 70px 40px 40px;
+    display: flex;
     justify-content: space-around;
-    #section-infos-bloc2 {
+    #section-infos-bloc1 {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
+        padding-right: 60px;
     }
-    img{
-        width: 600px;
+    img {
+        width: 800px;
     }
 }
 
@@ -85,22 +85,69 @@
     #section-infos-bloc2 {
         width: 85%;
         padding: 30px 150px;
-        h2 {
-            font-family: $mukta;
-            font-size: 40px;
-        }
         p {
             width: 70%;
             color: $white;
-            font-family: $lato;   
-            font-size: 22px;     
         }
     }
-
-
-
 }
 
+#section-infos-container3 {
+    margin: 40px 0px;
+    h2 {
+        text-align: end;
+        padding-right: 150px;
+    }
+    p {
+        margin-top: 20px;
+        margin-left: 20px;
+        background-color: $green;
+        color: $white;
+        padding: 20px 40px;
+        border-radius: 60px;
+        width: 70%;
+    }
+    #mockups-box {
+        display: flex;
+        justify-content: space-around;
+        align-items: end;
+    }
+}
+
+#section-recipes {
+    padding: 60px;
+    background-color: $orange;
+    color: $green;
+    h2 {
+        padding-bottom: 60px;
+        font-family: $mukta;
+        font-size: 3em;
+        font-weight: 600;
+    }
+    #recipe-container {
+        width: 300px;
+        img {
+            width: 300px;
+        }
+        p {
+            background-color: $white;
+            font-family: $lato;
+            font-size: 22px;
+        }
+        
+    }
+    a {
+        font-family: $lato;
+        background-color: $green;
+        padding: 15px 40px;
+        border-radius: 20px;
+        color: $white;
+        font-family: $mukta;
+        font-size: 30px;
+        text-decoration: none;
+        margin-right: 50px;
+    }
+}
 
 #section-contact {
     height: 20em;
@@ -135,12 +182,11 @@
             margin-right: 50px;
         }
     }
-
 }
 
 #pre-footer {
     height: 15em;
-    display:flex;
+    display: flex;
     justify-content: center;
     color: $green;
     font-size: $lato;
@@ -155,6 +201,53 @@
             font-size: 40px;
             padding-top: 50px;
             padding-bottom: 30px;
+        }
+    }
+}
+
+/**************** Responsive ****************/
+
+@media screen and (max-width: 1300px) {
+}
+
+@media screen and (max-width: 900px) {
+    #hero {
+        h1 {
+            width: 60%;
+        }
+        #hero-links {
+            width: 60%;
+        }
+    }
+
+    #pre-footer {
+        height: 17em;
+
+        #container-pre-footer {
+            width: 30%;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #hero {
+        height: 40em;
+        align-items: center;
+        h1 {
+            width: 70%;
+        }
+        #hero-links {
+            width: 70%;
+        }
+    }
+
+    #pre-footer {
+        height: 45em;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        #container-pre-footer {
+            width: 60%;
         }
     }
 }
