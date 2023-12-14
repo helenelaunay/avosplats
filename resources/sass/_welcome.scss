@@ -11,20 +11,34 @@
     flex-direction: column;
     justify-content: space-around;
     font-family: $mukta;
-
     h1 {
         color: $white;
         width: 40%;
-        padding: 10px;
+        padding: 20px;
         background-color: $orange;
-    }
-    #btn-hero {
-        padding: 10px;
-        background-color: $green;
-        color: $white;
         border-radius: 10px;
-        width: 30%;
+        margin-left: 50px;
+        font-size: 3rem;
     }
+    #hero-links {
+        margin-left: 50px;
+        width: 40%;
+        height: 170px;
+        #hero-link-register {
+            background-color: $green;
+            color: $white;
+            border-radius: 30px;
+            font-size: 2em;
+            width: 60%;
+        }
+        #hero-link-login {
+            color: $white;
+            font-weight: 600;
+            font-size: 1.5em;
+        }
+
+    }
+    
 }
 
 #section-infos {
@@ -57,21 +71,29 @@
 }
 
 #section-infos-container2 {
+    margin: 40px 0px;
     background-color: $green;
     border-radius: 15px;
     width: 90%;
     height: 270px;
     display: flex;
     img {
-        width: 25%;
+        width: 200px;
         border-top-left-radius: 15px;
         border-bottom-left-radius: 15px;
     }
     #section-infos-bloc2 {
-        width: 60%;
-        padding-left: 75px;
+        width: 85%;
+        padding: 30px 150px;
+        h2 {
+            font-family: $mukta;
+            font-size: 40px;
+        }
         p {
-            color: $white;        
+            width: 70%;
+            color: $white;
+            font-family: $lato;   
+            font-size: 22px;     
         }
     }
 
@@ -82,7 +104,7 @@
 
 #section-contact {
     height: 20em;
-    background: url(http://[::1]:5173/public/images/bg-accueil-contact.jpg);
+    background: url(http://[::1]:5173/public/images/bg-accueil-contact.webp);
     background-size: cover;
     background-position: center;
     display: flex;

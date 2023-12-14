@@ -2,10 +2,10 @@
 
     @section('content')
         <section id="hero">
-            <h1>Retrouvez vos menus et vos recettes en 1 clic sur tous vos écrans</h1>
-            <div class="d-flex flex-column">
-                <a id="btn-hero" href="{{ route('register') }}">Je m'inscris !</a>
-                <a href="{{ route('login') }}">Déjà inscrit ? Cliquez ici pour vous connecter</a>
+            <h1 class="text-center">Retrouvez vos menus et vos recettes en 1 clic sur tous vos écrans</h1>
+            <div id="hero-links" class="d-flex flex-column align-items-center justify-content-around">
+                <a id="hero-link-register" class="text-decoration-none text-center" href="{{ route('register') }}">Je m'inscris !</a>
+                <a id="hero-link-login" class="text-decoration-none text-center" href="{{ route('login') }}">Déjà inscrit ? Cliquez ici pour vous connecter</a>
             </div>
 
         </section>
@@ -36,7 +36,7 @@
 
                 <img src="{{ asset('images/recette-infos.jpg') }}" class="img-fluid" alt="">
 
-                <div id="section-infos-bloc2">
+                <div id="section-infos-bloc2" class="d-flex flex-column justify-content-around">
                     <div>
                         <h2>Ajoutez vos recettes ou découvrez celles de notre communauté</h2>
                     </div>
@@ -91,7 +91,7 @@
         <section id="section-contact">
             <div>
                 <h2>Une question ? Une suggestion ?</h2>
-                <a class="" href="">Contactez-nous !</a>
+                <a href="">Contactez-nous !</a>
             </div>
         </section>
 
