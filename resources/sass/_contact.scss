@@ -6,7 +6,6 @@
     border-radius: 15px;
     font-family: $lato;
     h2 {
-        padding-left: 40px;
         padding-top: 20px;
         font-family: $mukta;
         font-weight: 600;
@@ -28,6 +27,8 @@
     
     #contactForm {
         background-color: $orange;
+        border-radius: 10px;
+        width: 50%;
         padding: 20px;
         form {
             margin-bottom:auto 10px;
@@ -57,17 +58,21 @@
 @media screen and (max-width: 767px) {
     #contact h2 {
         font-size: 2.5rem;
-        padding-left: 0px;
-        text-align: center;
     }
     #contact h4 {
         font-size: 1.2rem;
+    }
+    #contactForm {
+        width: 80%;
     }
 }
 
 @media screen and (max-width: 601px) {
     #contact h2 {
         padding: 0px 30px;
+    }
+    #contactForm {
+        width: 90%;
     }
 }
 

@@ -3,7 +3,7 @@
 @section('content')
     <section id="contact">
         <div>
-            <h2>Une question ? Une suggestion ?</h2>
+            <h2 class="text-center">Une question ? Une suggestion ?</h2>
         </div>
         <div>
             <h4>N'hésitez pas à nous contacter :
@@ -42,7 +42,7 @@
                         onchange="enableSubmit()">
                     <label class="form-check-label" for="acceptTerms">J'accepte les termes et conditions</label>
                 </div>
-                <div class="text-right">
+                <div class="d-flex justify-content-end">
                     <button class="mt-5" type="submit" id="submitBtn" disabled>Envoyer</button>
                 </div>
             </form>
