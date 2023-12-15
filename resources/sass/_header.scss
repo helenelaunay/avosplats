@@ -1,18 +1,98 @@
-@import 'variables';
+@import "variables";
 
 header {
     background-color: $green;
     height: 160px;
     .container {
         height: 160px;
+        a {
+            color: $white;
+            font-family: $lato;
+            font-size: 20px;
+        }
+        a:hover {
+            color: $orange;
+        }
     }
+}
+
+#navbarDropdown:hover {
+    color: $white;
+}
+
+#box-link-nav-mobile {
+    display: flex;
+    align-items: center;
+    #link-nav a {
+        padding-left: 30px;
+        text-decoration: none;
+    }
+    #links-login {
+        padding-left: 50px;
+        a {
+            display: none;
+        }
+    }
+}
+
+#nav-connexion {
+    background-color: $green;
+    color: $white;
 }
 
 #logo-header {
     height: 140px;
+    img {
+        width: 140px;
+    }
 }
 
 #photo_profil {
     height: 80px;
     width: 80px;
+}
+
+/**************** Responsive ****************/
+
+@media screen and (max-width: 767px) {
+    #navbarDropdown {
+        display: none;
+    }
+    #box-link-nav-mobile {
+        padding: 20px;
+        background-color: $green;
+        width: 100%;
+        flex-direction: column;
+        #link-nav {
+            flex-direction: column;
+            justify-content: center;
+            a {
+                padding: 0px;
+                text-decoration: none;
+                color: $white;
+                font-size: 40px;
+                text-align: center;
+            }
+        }
+        #links-login {
+            justify-content: center;
+            padding: 0px;
+            a {
+                display: flex;
+                padding: 0px;
+                font-size: 40px;
+                text-align: center;
+                justify-content: center;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 501px) {
+    #box-link-nav-mobile {
+        padding: 10px;
+        a {
+            font-size: 30px;
+        }
+    }
 }

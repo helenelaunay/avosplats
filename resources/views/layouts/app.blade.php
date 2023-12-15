@@ -44,26 +44,24 @@
             <nav class="navbar navbar-expand-md">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        <img id="logo-header" src="{{ asset('images/logoHeader.png') }}" alt="logo">
+                        <div id="logo-header">
+                            <img src="{{ asset('images/logoFooter.png') }}" alt="logo A vos plats!">
+                            <img src="{{ asset('images/Logo-txt.png') }}" alt="">
+                        </div>
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                        aria-expanded="false" aria-label="{{ __('Toggle navigation') }}" style="background-color: white">
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <!-- Left Side Of Navbar -->
-                        <ul class="navbar-nav me-auto">
-
-                        </ul>
-
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ms-auto">
                             <!-- Authentication Links -->
                             @guest
                                 @if (Route::has('login'))
-                                    <div>
+                                    <div id="box-link-nav-mobile">
                                         @auth
                                             <a href="{{ url('/home') }}">
                                                 <img id="photo_profil" class="rounded-circle"
@@ -71,17 +69,25 @@
                                                     alt="Photo de profil">
                                             </a>
                                         @else
-                                            <div>
+                                            <div id="link-nav" class="d-flex justify-content-end">
                                                 <a href="{{ url('/apropos') }}">A propos</a>
                                                 <a href="{{ route('editFormContact') }}">Contact</a>
+                                            </div >
+                                              
+                                            <div id="links-login" class="d-flex justify-content-end flex-column">
+                                                <a class="dropdown-item" href="{{ route('login') }}">Se connecter</a>
+                                                <a class="dropdown-item" href="{{ route('register') }}">Créer un compte</a>
                                             </div>
+                                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa-solid fa-user"></i></a>
+                                            <div id="nav-connexion" class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                                <a class="dropdown-item" href="{{ route('login') }}">Se connecter</a>
+                                                <a class="dropdown-item" href="{{ route('register') }}">Créer un compte</a>      
+                                            </div>
+                                            
 
-                                            <a href="{{ route('login') }}">Se connecter</a>
 
-                                            @if (Route::has('register'))
-                                                <a href="{{ route('register') }}">Créer un compte</a>
-                                            @endif
-                                            </li>
+
                                         @endauth
                                     </div>
                                 @endif
@@ -105,7 +111,6 @@
                                             <a class="dropdown-item"
                                                 href="{{ route('indexBackOffice') }}">{{ __('Espace Administrateur') }}</a>
                                         @endif
-
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -116,12 +121,13 @@
                                             class="d-none">
                                             @csrf
                                         </form>
+
                                     </div>
                                 </li>
                             @endguest
                         </ul>
                     </div>
-                    <a href="{{ redirect()->back() }}">Retour</a>
+                    {{-- <a href="{{ redirect()->back() }}">Retour</a> --}}
                 </div>
             </nav>
         </div>
@@ -178,4 +184,5 @@
 
 
 </body>
+
 </html>
