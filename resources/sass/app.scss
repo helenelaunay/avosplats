@@ -14,3 +14,36 @@ body{
     max-width: 1440px;
     margin:0 auto;
 }
+
+// Style de formulaires
+.card {
+    margin:80px 0px;
+    border-color: $orange;
+    color: $green;
+    
+    .card-header {
+        font-size: 20px;
+        border-color: $orange;
+        background-color: $orange;
+        color: $green;
+    }
+}
+#form {
+    color: $green;
+    border-color: $green;
+    input, textarea, a {
+        border-color: $orange;
+        color: $green;
+    }
+    .form-check-input {
+        background-color: $orange;
+    }
+
+    button {
+        background-color: $orange;
+        color: $green;
+        padding: 10px 30px;
+        border-color: $orange;
+        border-radius: 5px;
+    }
+}

@@ -66,11 +66,13 @@
                                     <div>
                                         @auth
                                             <a href="{{ url('/home') }}">
-                                                <img id="photo_profil" class="rounded-circle" src="{{ asset('photos_de_profil/' . Auth::user()->photo) }}" alt="Photo de profil">
+                                                <img id="photo_profil" class="rounded-circle"
+                                                    src="{{ asset('photos_de_profil/' . Auth::user()->photo) }}"
+                                                    alt="Photo de profil">
                                             </a>
                                         @else
                                             <div>
-                                                <a href="#">A propos</a>
+                                                <a href="{{ url('/apropos') }}">A propos</a>
                                                 <a href="{{ route('editFormContact') }}">Contact</a>
                                             </div>
 
@@ -79,12 +81,12 @@
                                             @if (Route::has('register'))
                                                 <a href="{{ route('register') }}">Créer un compte</a>
                                             @endif
-                                        </li>
+                                            </li>
                                         @endauth
                                     </div>
                                 @endif
                             @else
-                                <a href="#">A propos</a>
+                                <a href="{{ url('/apropos') }}">A propos</a>
                                 <a href="{{ route('editFormContact') }}">Contact</a>
                                 <a href="{{ url('/home') }}"><img id="photo_profil" class="rounded-circle"
                                         src="{{ asset('photos_de_profil/' . Auth::user()->photo) }}"
@@ -100,8 +102,8 @@
                                         <a class="dropdown-item"
                                             href="{{ route('editPasswordUser', $user = Auth::user()) }}">{{ __('Modifier mon mot de passe') }}</a>
                                         @if (Auth::user()->role_id == 2)
-                                        <a class="dropdown-item" href="{{ route('indexBackOffice')}}">{{ __('Espace Administrateur') }}</a>
-                                                                            
+                                            <a class="dropdown-item"
+                                                href="{{ route('indexBackOffice') }}">{{ __('Espace Administrateur') }}</a>
                                         @endif
 
                                         <a class="dropdown-item" href="{{ route('logout') }}"
@@ -122,53 +124,58 @@
                     <a href="{{ redirect()->back() }}">Retour</a>
                 </div>
             </nav>
-        </header>
-            <div class="container-fluid text-center">
-                @if (session()->has('message'))
-                    <p class="alert alert-success mt-3">{{ session()->get('message') }}</p>
-                @endif
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-            </div>
-
-            @yield('content')
-
         </div>
+    </header>
+    <div class="container-fluid text-center">
+        @if (session()->has('message'))
+            <p class="alert alert-success mt-3">{{ session()->get('message') }}</p>
+        @endif
+        @if ($errors->any())
+            <div class="alert alert-danger mt-3">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+    </div>
 
-        <footer class="d-flex flex-column justify-content-end">
-            <div id="footer-infos" class="d-flex justify-content-around align-items-center">
+    @yield('content')
+
+
+
+    <footer class="d-flex flex-column justify-content-end">
+        <div id="footer-infos" class="d-flex justify-content-around align-items-center">
+            <div>
+                <img src="{{ asset('images/logoFooter.png') }}" id="logoFooter" alt="">
+            </div>
+            <div id="socialLinks-box" class="">
                 <div>
-                    <img src="{{ asset('images/logoFooter.png') }}" id="logoFooter" alt="">
-                </div>
-                <div class="d-flex align-items-center">
                     <p class="m-0">Ne ratez rien de notre actualité, suivez-nous :</p>
+                </div>
+                <div>
                     <i class="fa-brands fa-facebook ps-3"></i>
                     <i class="fa-brands fa-instagram ps-2"></i>
                 </div>
-                <div>
-                    <nav>
-                        <ul class="list-unstyled text-center">
-                            <li><a class="text-decoration-none" href="">A propos</a></li>
-                            <li><a class="text-decoration-none" href="{{ route('editFormContact') }}">Contact</a></li>
-                        </ul>
-                    </nav>
-                </div>
             </div>
-            <div id="copy" class="bg-black">
-                <p class="m-0 text-center">Copyright © 2023 | Propulsé par Hélène LAUNAY | <a class="text-decoration-none" href="{{ url('/mentionsLegales') }}">Mentions légales</a> | <a
-                    class="text-decoration-none" href="">Politiques de confidentialités</a></p>
+            <div>
+                <nav>
+                    <ul class="list-unstyled text-center">
+                        <li><a class="text-decoration-none" href="{{ url('/apropos') }}">A propos</a></li>
+                        <li><a class="text-decoration-none" href="{{ route('editFormContact') }}">Contact</a></li>
+                    </ul>
+                </nav>
             </div>
-        </footer>
-        
-        
-        </body>
-        
-        </html>
+        </div>
+        <div id="copy" class="bg-black">
+            <p class="m-0 text-center">Copyright © 2023 | Propulsé par Hélène LAUNAY | <a class="text-decoration-none"
+                    href="{{ url('/mentionsLegales') }}">Mentions légales</a> | <a class="text-decoration-none"
+                    href="">Politiques de confidentialités</a></p>
+        </div>
+    </footer>
 
+
+
+</body>
+</html>

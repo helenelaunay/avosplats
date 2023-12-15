@@ -18,6 +18,9 @@
                     <div>
                         <h2>Organisez vos menus à la semaine</h2>
                     </div>
+                    <div id="bloc1-image-mobile">
+                        <img src="{{ asset('images/screen-menu.webp') }}" class="img-fluid" alt="">
+                    </div>
                     <div>
                         <ul>
                             <li>Editez simplement votre menu de la semaine en ajoutant une recette ou en la supprimant</li>
@@ -28,8 +31,9 @@
                     </div>
                 </div>
 
-
+                {{-- <div id="bloc1-image-desktop"> --}}
                 <img src="{{ asset('images/screen-menu.webp') }}" class="img-fluid" alt="">
+                {{-- </div> --}}
 
 
             </div>
@@ -93,7 +97,7 @@
         <section id="section-contact">
             <div>
                 <h2>Une question ? Une suggestion ?</h2>
-                <a href="">Contactez-nous !</a>
+                <a href="{{ route('editFormContact') }}">Contactez-nous !</a>
             </div>
         </section>
 

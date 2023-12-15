@@ -6,53 +6,45 @@
 
 @section('content')
     <main class="container">
+        <div class="card">
+            <div class="card-header">{{ __('Modifier mon mot de passe') }}</div>
 
-        <div class="container-fluid text-center">
-            @if (session()->has('message'))
-                <p class="alert alert-success"> {{ session()->get('message') }}</p>
-            @endif
-
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-        </div> 
-
-        <h1>Mon compte</h1>
-
-        <h3 class="pb-3">Modifier mon mot de passe</h3>
-        <div class="">
-            <div class="row">
-
-                <form class="col-4 mx-auto" action="{{ route('updatePasswordUser', $user) }}" method="POST">
+                <form id="form" class="col-8 mx-auto" action="{{ route('updatePasswordUser', $user) }}" method="POST">
                     @csrf
                     @method('PUT')
 
-                    <div class="form-group">
+                    <div class="form-group mt-2">
                         <label for="password">Mot de passe actuel</label>
-                        <input required type="password" class="form-control  @error('password') is-invalid @enderror mb-3" name="password" id="password">
+                        <input required type="password" class="form-control  @error('password') is-invalid @enderror mb-3"
+                            name="password" id="password">
                     </div>
-                    <div class="form-group">
-                        <label for="new_password">Nouveau mot de passe</label>
-                        <input required type="password" class="form-control @error('password') is-invalid @enderror mb-3" name="new_password" id="new_password">
+                    <div class="form-group mt-2">
+                        <label for="new_password">Nouveau mot de passe *</label>
+                        <input required type="password" class="form-control @error('password') is-invalid @enderror mb-3"
+                            name="new_password" id="new_password">
                     </div>
-                    <div class="form-group">
-                        <label for="confirm_new_password">Confirmez le nouveau mot de passe</label>
-                        <input id="confirm_new_password" type="password" class="form-control @error('password') is-invalid @enderror mb-3" name="confirm_new_password" required autocomplete="new-password">
-                        </div>
-                    
-                    <div>
-                        <p>* Attention, votre mot de passe doit être composé d'au moins 8 caractères et doit
-                            comprendre au moins<br> une minisucule,<br> une majuscule,<br> un chiffre,<br> un caractère spécial.
-                        </p>
+                    <div class="form-group mt-2">
+                        <label for="confirm_new_password">Confirmez le nouveau mot de passe *</label>
+                        <input id="confirm_new_password" type="password"
+                            class="form-control @error('password') is-invalid @enderror mb-3" name="confirm_new_password"
+                            required autocomplete="new-password">
                     </div>
 
-                    <button type="submit" class="btn btn-primary mb-3">Valider</button>
+                    <div>
+                        <div>
+                            <p>* Attention, votre mot de passe doit être composé d'au moins 8 caractères et doit
+                                comprendre au moins :</p>
+                            <ul>
+                                <li>une minisucule,</li>
+                                <li>une majuscule,</li>
+                                <li>un chiffre,</li>
+                                <li>un caractère spécial.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary mb-3">Valider</button>
+                    </div>
                 </form>
             </div>
         </div>

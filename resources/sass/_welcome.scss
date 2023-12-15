@@ -64,6 +64,9 @@
         flex-direction: column;
         justify-content: space-around;
         padding-right: 60px;
+        #bloc1-image-mobile {
+            display: none;
+        }
     }
     img {
         width: 800px;
@@ -207,6 +210,10 @@
 
 /**************** Responsive ****************/
 
+
+// #bloc1-image-mobile {
+//     display: flex;
+// }
 @media screen and (max-width: 1300px) {
 }
 
@@ -222,7 +229,6 @@
 
     #pre-footer {
         height: 17em;
-
         #container-pre-footer {
             width: 30%;
         }
@@ -242,7 +248,7 @@
     }
 
     #pre-footer {
-        height: 45em;
+        height: 50em;
         flex-direction: column;
         justify-content: center;
         align-items: center;

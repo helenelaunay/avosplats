@@ -8,14 +8,14 @@
                     <div class="card-header">{{ __('Créer un compte') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+                        <form id="form"  method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                             @csrf
 
-                            <div class="row mb-3">
+                            <div class="form-group mt-2">
                                 <label for="pseudo"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Pseudo') }}</label>
+                                    class="col-form-label text-md-end">{{ __('Pseudo') }}</label>
 
-                                <div class="col-md-6">
+                                <div>
                                     <input id="pseudo" type="text"
                                         class="form-control @error('pseudo') is-invalid @enderror" name="pseudo"
                                         value="{{ old('pseudo') }}" required autocomplete="pseudo" autofocus>
@@ -28,11 +28,11 @@
                                 </div>
                             </div>
 
-                            <div class="row mb-3">
+                            <div class="form-group mt-2">
                                 <label for="photo"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Photo de profil') }}</label>
+                                    class="col-form-label text-md-end">{{ __('Photo de profil') }}</label>
 
-                                <div class="col-md-6">
+                                <div>
                                     <input id="photo" type="file"
                                         class="form-control @error('photo') is-invalid @enderror" name="photo"
                                         value="{{ old('photo') }}" required autocomplete="photo" autofocus>
@@ -45,11 +45,11 @@
                                 </div>
                             </div>
 
-                            <div class="row mb-3">
+                            <div class="form-group mt-2">
                                 <label for="email"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('E-mail') }}</label>
+                                    class="col-form-label text-md-end">{{ __('E-mail') }}</label>
 
-                                <div class="col-md-6">
+                                <div>
                                     <input id="email" type="email"
                                         class="form-control @error('email') is-invalid @enderror" name="email"
                                         value="{{ old('email') }}" required autocomplete="email">
@@ -62,11 +62,11 @@
                                 </div>
                             </div>
 
-                            <div class="row mb-3">
+                            <div class="form-group mt-2">
                                 <label for="password"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Mot de passe*') }}</label>
+                                    class="col-form-label text-md-end">{{ __('Mot de passe *') }}</label>
 
-                                <div class="col-md-6">
+                                <div>
                                     <input id="password" type="password"
                                         class="form-control @error('password') is-invalid @enderror" name="password"
                                         required autocomplete="new-password">
@@ -79,22 +79,27 @@
                                 </div>
                             </div>
 
-                            <div class="row mb-3">
+                            <div class="form-group mt-2">
                                 <label for="password-confirm"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('Confirmez le mot de passe*') }}</label>
+                                    class="col-form-label text-md-end">{{ __('Confirmez le mot de passe *') }}</label>
 
-                                <div class="col-md-6">
+                                <div>
                                     <input id="password-confirm" type="password" class="form-control"
                                         name="password_confirmation" required autocomplete="new-password">
                                 </div>
                             </div>
                             <div>
                                 <p>* Attention, votre mot de passe doit être composé d'au moins 8 caractères et doit
-                                    comprendre au moins une minisucule, une majuscule, un chiffre et un caractère spécial.
-                                </p>
+                                    comprendre au moins :</p>
+                                <ul>
+                                    <li>une minisucule,</li>
+                                    <li>une majuscule,</li>
+                                    <li>un chiffre,</li>
+                                    <li>un caractère spécial.</li>
+                                </ul>
                             </div>
-                            <div class="row mb-0">
-                                <div class="col-md-6 offset-md-4">
+                            <div>
+                                <div class="d-flex justify-content-end">
                                     <button type="submit" class="btn btn-primary">
                                         {{ __('Valider') }}
                                     </button>

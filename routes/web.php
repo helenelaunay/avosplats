@@ -26,6 +26,9 @@ Auth::routes();
 // Route Home
 Route::get('/home',[App\Http\Controllers\HomeController::class,'index'])->name('home');
 
+// Route A propos
+Route::get('/apropos', function () { return view('apropos'); });
+
 // Routes Contact
 Route::get('/contact', [App\Http\Controllers\ContactController::class,'editForm'])->name('editFormContact');
 Route::post('/contact/submitForm', [App\Http\Controllers\ContactController::class,'submitForm'])->name('submitFormContact');

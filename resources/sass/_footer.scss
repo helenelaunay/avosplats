@@ -12,13 +12,17 @@ footer {
         font-size: $lato;
         font-size: 20px;
     }
+    #socialLinks-box {
+        display: flex; 
+        align-items: center;
+    }
 }
  
 #copy {
     background-color: $black;
     height: 25px;
     p, a {
-        font-size: 15px;
+        font-size: 14px;
         color: $white;
     }
 }
@@ -28,17 +32,29 @@ footer {
 
 @media screen and (max-width: 700px) {
     footer {
-        height: 300px;
+        height: 380px;
         #footer-infos {
             height: 300px;
             flex-direction: column;
-            justify-content: space-around;    
+            justify-content: space-around;
+            #socialLinks-box {
+                display: flex;
+                flex-direction: column; 
+                align-items: center;
+                p {
+                    padding-top: 30px;
+                    text-align: center;
+                }
+                nav {
+                    padding-top: 20px;
+                }
+            }    
         }
         #copy {
             height: 55px;
             padding: 0px, 20px;
             p, a {
-                font-size: 12px;
+                font-size: 11px;
         }
     }
 }
