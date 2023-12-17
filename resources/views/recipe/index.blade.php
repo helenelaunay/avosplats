@@ -18,7 +18,7 @@
                             {{ $recipe->nameRecipe }}
 
                         </label>
-                        <a href="{{ route('showRecipe', $recipe->id) }}">Voir la recette</a>
+                        <a href="{{ route('showRecipe', $recipe->id) }}"><i class="fa-regular fa-eye"></i></a>
                     </div>
                 @endforeach
 

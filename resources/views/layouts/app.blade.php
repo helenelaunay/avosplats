@@ -51,7 +51,8 @@
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="{{ __('Toggle navigation') }}" style="background-color: white">
+                        aria-expanded="false" aria-label="{{ __('Toggle navigation') }}"
+                        style="background-color: white">
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
@@ -63,7 +64,7 @@
                                 @if (Route::has('login'))
                                     <div id="box-link-nav-mobile">
                                         @auth
-                                            <a href="{{ url('/home') }}">
+                                            <a id="home-img" href="{{ url('/home') }}">
                                                 <img id="photo_profil" class="rounded-circle"
                                                     src="{{ asset('photos_de_profil/' . Auth::user()->photo) }}"
                                                     alt="Photo de profil">
@@ -72,19 +73,21 @@
                                             <div id="link-nav" class="d-flex justify-content-end">
                                                 <a href="{{ url('/apropos') }}">A propos</a>
                                                 <a href="{{ route('editFormContact') }}">Contact</a>
-                                            </div >
-                                              
+                                            </div>
+
                                             <div id="links-login" class="d-flex justify-content-end flex-column">
                                                 <a class="dropdown-item" href="{{ route('login') }}">Se connecter</a>
                                                 <a class="dropdown-item" href="{{ route('register') }}">Créer un compte</a>
                                             </div>
-                                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa-solid fa-user"></i></a>
-                                            <div id="nav-connexion" class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#"
+                                                role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false"><i class="fa-solid fa-user"></i></a>
+                                            <div id="nav-connexion" class="dropdown-menu dropdown-menu-end"
+                                                aria-labelledby="navbarDropdown">
                                                 <a class="dropdown-item" href="{{ route('login') }}">Se connecter</a>
-                                                <a class="dropdown-item" href="{{ route('register') }}">Créer un compte</a>      
+                                                <a class="dropdown-item" href="{{ route('register') }}">Créer un compte</a>
                                             </div>
-                                            
+
 
 
 
@@ -92,28 +95,21 @@
                                     </div>
                                 @endif
                             @else
-                                <a href="{{ url('/apropos') }}">A propos</a>
-                                <a href="{{ route('editFormContact') }}">Contact</a>
-                                <a href="{{ url('/home') }}"><img id="photo_profil" class="rounded-circle"
-                                        src="{{ asset('photos_de_profil/' . Auth::user()->photo) }}"
-                                        alt="Photo de profil"></a>
-                                <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre></a>
-
-                                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ url('/home') }}">Mon profil</a>
-                                        <a class="dropdown-item"
-                                            href="{{ route('editUser', $user = Auth::user()) }}">{{ __('Modifier mes informations') }}</a>
-                                        <a class="dropdown-item"
-                                            href="{{ route('editPasswordUser', $user = Auth::user()) }}">{{ __('Modifier mon mot de passe') }}</a>
+                                <div id="link-nav-mobile" class="d-flex">
+                                    <div id="link-nav-mobile-menu" class="d-flex align-items-center">
+                                        <a href="{{ url('/apropos') }}">A propos</a>
+                                        <a href="{{ route('editFormContact') }}">Contact</a>
+                                    </div>
+                                    <div id="navbarUserConnectMobile" class="d-flex flex-column d-md-none">
+                                        <a href="{{ url('/home') }}">Mon profil</a>
+                                        <a href="{{ route('editUser', $user = Auth::user()) }}">{{ __('Modifier mes informations') }}</a>
+                                        <a href="{{ route('editPasswordUser', $user = Auth::user()) }}">{{ __('Modifier mon mot de passe') }}</a>
                                         @if (Auth::user()->role_id == 2)
-                                            <a class="dropdown-item"
-                                                href="{{ route('indexBackOffice') }}">{{ __('Espace Administrateur') }}</a>
+                                            <a href="{{ route('indexBackOffice') }}">{{ __('Espace Administrateur') }}</a>
                                         @endif
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                        <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                             document.getElementById('logout-form').submit();">
                                             {{ __('Me déconnecter') }}
                                         </a>
 
@@ -121,10 +117,46 @@
                                             class="d-none">
                                             @csrf
                                         </form>
-
                                     </div>
-                                </li>
-                            @endguest
+                                    <div  id="menu-user-connect" class="d-flex align-items-center d-none d-md-flex">
+                                        <a href="{{ url('/home') }}"><img id="photo_profil" class="rounded-circle"
+                                                src="{{ asset('photos_de_profil/' . Auth::user()->photo) }}"
+                                                alt="Photo de profil"></a>
+                                        <li class="nav-item dropdown">
+                                            <a id="navbarDropdownMobile" class="nav-link dropdown-toggle" href="#"
+                                                role="button" data-bs-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false" v-pre></a>
+
+                                            <div id="navbar-drop-connect" class="dropdown-menu dropdown-menu-end"
+                                                aria-labelledby="navbarDropdown">
+                                                
+                                                <a class="dropdown-item" href="{{ url('/home') }}">Mon profil</a>
+                                                <a class="dropdown-item"
+                                                    href="{{ route('editUser', $user = Auth::user()) }}">{{ __('Modifier mes informations') }}</a>
+                                                <a class="dropdown-item"
+                                                    href="{{ route('editPasswordUser', $user = Auth::user()) }}">{{ __('Modifier mon mot de passe') }}</a>
+                                                @if (Auth::user()->role_id == 2)
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('indexBackOffice') }}">{{ __('Espace Administrateur') }}</a>
+                                                @endif
+                                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                                    onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                                    {{ __('Me déconnecter') }}
+                                                </a>
+
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                    class="d-none">
+                                                    @csrf
+                                                </form>
+                                            
+
+                                            </div>
+                                        </li>
+                                    </div>
+
+                                @endguest
+                            </div>
                         </ul>
                     </div>
                     {{-- <a href="{{ redirect()->back() }}">Retour</a> --}}
@@ -161,8 +193,8 @@
                     <p class="m-0">Ne ratez rien de notre actualité, suivez-nous :</p>
                 </div>
                 <div>
-                    <i class="fa-brands fa-facebook ps-3"></i>
-                    <i class="fa-brands fa-instagram ps-2"></i>
+                    <a href="#"><i class="fa-brands fa-facebook ps-3"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram ps-2"></i></a>
                 </div>
             </div>
             <div>

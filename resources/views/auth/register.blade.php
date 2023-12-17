@@ -28,7 +28,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group mt-2">
+                            <div id="form-input-image" class="form-group mt-2">
                                 <label for="photo"
                                     class="col-form-label text-md-end">{{ __('Photo de profil') }}</label>
 

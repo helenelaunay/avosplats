@@ -7,40 +7,39 @@
 @section('content')
     <main class="container">
 
-        <div class="container-fluid text-center">
-            @if (session()->has('message'))
-                <p class="alert alert-success"> {{ session()->get('message') }}</p>
-            @endif
 
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-        </div>
+        <table id="list-recipes">
+
+
+            <tr>
+                @foreach ($recipes as $recipe)
+                    <td>
+                        <p>{{ $recipe->nameRecipe }}</p>
+                    </td>
+                    <td>
+                        <a href="{{ route('showRecipe', $recipe->id) }}"><i class="fa-regular fa-eye"></i></a>
+                    </td>
+                    <td>
+                        <a href="{{ route('editRecipe', $recipe->id) }}"><i class="fa-regular fa-pen-to-square"></i></a>
+                    </td>
+                    <td>
+                        <form id="deleteUserForm" action="{{ route('destroyRecipe', $recipe->id) }}" method="post">
+                            @csrf
+                            @method('delete')
+                            <button type="submit"><i class="fa-regular fa-trash-can"></i></button>
+                        </form>
+
+                    </td>
+                    
+            </tr>
+            @endforeach
+        </table>
+
+
+
+
 
         <div>
-
-            @foreach ($recipes as $recipe)
-                <p>{{ $recipe->nameRecipe }}</p>
-                <a href="{{ route('showRecipe', $recipe->id) }}">Voir</a>
-                <a href="{{ route('editRecipe', $recipe->id) }}">Modifier</a>
-                <form id="deleteUserForm" action="{{ route('destroyRecipe', $recipe->id) }}" method="post">
-                    @csrf
-                    @method('delete')
-                    <button type="submit">Supprimer</button>
-                </form>
+            <a href=" {{ route('createRecipe') }}"><i class="fa-solid fa-circle-plus"></i> Ajouter une nouvelle recette</a>
         </div>
-        @endforeach
-
-
-
-        <div>
-            <a href=" {{ route('createRecipe') }}">Ajouter une nouvelle recette</a>
-        </div>
-
     @endsection

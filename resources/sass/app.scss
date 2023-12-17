@@ -13,6 +13,16 @@
 body{
     max-width: 1440px;
     margin:0 auto;
+    h2 {
+        color: $green;
+        font-family: $mukta;
+        font-weight: 600;
+    }
+    p {
+        color: $green;
+        font-family: $lato;
+        font-size: 20px;
+    }
 }
 
 // Style de formulaires
@@ -39,11 +49,38 @@ body{
         background-color: $orange;
     }
 
+
     button {
         background-color: $orange;
         color: $green;
         padding: 10px 30px;
         border-color: $orange;
         border-radius: 5px;
+    }
+}
+
+#list-recipes {
+    color: $green;
+    a i {
+        color:$green;
+        padding: 0px 10px;
+    }
+    button {
+        border: none;
+        background: none;
+        color: $green;
+        padding: 0px 10px;
+    }
+}
+
+/**************** Responsive ****************/
+
+@media screen and (max-width: 575px) {
+    #form {
+        width: 100%;
+        margin: 0px 10px;
+            .form-group {
+                padding: 0px 5px;
+            }
     }
 }

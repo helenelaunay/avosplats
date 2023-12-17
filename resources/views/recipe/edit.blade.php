@@ -9,7 +9,11 @@
         <div class="card">
             <div class="card-header">{{ __('Modifier ma recette') }}</div>
 
-
+            <div class="d-flex align-items-center mt-3 ms-3">
+                <i class="fa-solid fa-lightbulb"></i>                 
+                <p class="ps-2 mb-0">Pensez à mentionner à combien de personnes correspondent les quantités indiquées. </p>
+            </div>
+            
                 <form id="form" class="col-8 mx-auto" action="{{ route('updateRecipe', $recipe->id) }}" method="POST"
                     enctype="multipart/form-data">
                     @csrf
@@ -19,7 +23,7 @@
                         <input required type="text" class="form-control mb-3" name="nameRecipe" id="nameRecipe"
                             value="{{ $recipe->nameRecipe }}">
                     </div>
-                    <div class="form-group mt-2">
+                    <div id="form-input-image" class="form-group mt-2">
                         <label class="input-groupe-text" for="photoRecipe"></label>
                         <input type="file" class="form-control mb-3" name="photoRecipe" id="photoRecipe">
                     </div>
@@ -36,6 +40,10 @@
                     <i class="fa-solid fa-triangle-exclamation"></i>
                     <p class="ps-2 mb-0">Dans l'attente de sa validation par l'administrateur, votre recette ne sera pas visible
                         dans la liste des recettes !</p>
+                </div>
+                <div class="d-flex align-items-center justify-content-center mb-3">
+                    <i class="fa-solid fa-lightbulb"></i>                    
+                    <p class="ps-2 mb-0">Vous ne pouvez pas supprimer votre recette après édition/modification. Seul un administrateur peut réaliser cette action.</p>
                 </div>
             </div>
         </div>

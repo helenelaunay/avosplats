@@ -12,6 +12,9 @@ footer {
         font-size: $lato;
         font-size: 20px;
     }
+    a:hover, i:hover {
+        color: $orange;
+    }
     #socialLinks-box {
         display: flex; 
         align-items: center;
