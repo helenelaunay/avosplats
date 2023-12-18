@@ -72,6 +72,66 @@ body{
         padding: 0px 10px;
     }
 }
+// Page A propos 
+#a-propos {
+    img {
+        border-radius: 15px;
+    }
+    span {
+        color: $orange;
+        font-weight: 600;
+    }
+    a {
+        background-color: $green;
+        color: $white;
+        padding: 10px 25px;
+        border-radius: 45px;
+        font-size: 20px;
+    }
+    a:hover {
+        color:$orange;
+    }
+}
+
+
+// Page Home
+#semainier {
+    //background-image: url(http://[::1]:5173/public/images/bg-accueil-contact.webp);
+    background-size: contain;
+    background-position: unset;
+    border-radius: 15px;
+    margin: 80px 30px;
+    color: $orange;
+    #semainier-meals { 
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            
+        }
+        .meal-content {
+            // grid-column-start: 2;
+            // grid-column-end: 8;
+            // grid-row: 2 / 3;
+            border: 1.5px solid $green;
+            padding: 10px;
+            display: flex;
+            flex-direction: column-reverse;
+        }
+        .empty-header,
+        .day-header,
+        .meal-type-header {
+            text-align: center;
+        }
+        .meal-type {
+            grid-column-start :1;
+        }
+.day-header {
+    grid-template-columns: 1fr ;
+}
+        
+        
+}
+
+
 
 /**************** Responsive ****************/
 
@@ -83,4 +143,13 @@ body{
                 padding: 0px 5px;
             }
     }
+    #apropos-box {
+        flex-direction: column !important;
+        justify-content: center;
+        margin: 0 !important;
+        p {
+            padding: 0 !important;
+        }
+    }
+
 }

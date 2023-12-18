@@ -119,6 +119,7 @@ header {
         height: 300px;
         nav .container {
             height: 250px;
+            flex-wrap: nowrap !important;
             flex-direction: column;
         }
 

@@ -9,7 +9,11 @@
 
 
         <table id="list-recipes">
-
+<tr>
+    <td>Nom de la recette</td>
+    <td>Voir la recette</td>
+    <td>Modifier la recette</td>
+</tr>
 
             <tr>
                 @foreach ($recipes as $recipe)
@@ -22,15 +26,6 @@
                     <td>
                         <a href="{{ route('editRecipe', $recipe->id) }}"><i class="fa-regular fa-pen-to-square"></i></a>
                     </td>
-                    <td>
-                        <form id="deleteUserForm" action="{{ route('destroyRecipe', $recipe->id) }}" method="post">
-                            @csrf
-                            @method('delete')
-                            <button type="submit"><i class="fa-regular fa-trash-can"></i></button>
-                        </form>
-
-                    </td>
-                    
             </tr>
             @endforeach
         </table>
@@ -42,4 +37,5 @@
         <div>
             <a href=" {{ route('createRecipe') }}"><i class="fa-solid fa-circle-plus"></i> Ajouter une nouvelle recette</a>
         </div>
-    @endsection
+    </main>
+@endsection
