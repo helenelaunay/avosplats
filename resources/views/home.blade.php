@@ -95,5 +95,5 @@
         @endforeach
     </div> --}}
 
-    <div><a href="{{ route('recipeByUser', $user->id) }}">Mes recettes</a></div>
+    <div><a href="{{ route('recipeByUser', $user->id) }}"><i class="fa-solid fa-utensils"></i> Mes recettes</a></div>
 @endsection

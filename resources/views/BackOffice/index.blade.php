@@ -6,11 +6,8 @@
 
 @section('content')
     <section id="backOffice" style="min-height: 450px">
-
-
         <div class="m-5">
             <h2 class="text-center mt-5 mb-5">ESPACE ADMINISTRATEUR</h2>
-
             <nav>
                 <ul class="list-unstyled mt-5 mb-5">
                     <div class="d-flex justify-content-around">
@@ -21,8 +18,6 @@
             </nav>
 
             <div>
-
-
                 @if (isset($clickedRecipeLink) && $clickedRecipeLink)
                     @if (isset($recipesToCheck) && count($recipesToCheck) > 0)
                         @foreach ($recipesToCheck as $recipeToCheck)

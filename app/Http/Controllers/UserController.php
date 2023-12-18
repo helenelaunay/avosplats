@@ -29,10 +29,12 @@ class UserController extends Controller
         $request->validate([
             'pseudo' => 'nullable|max:40',
             'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'email' => 'required', 'string', 'email', 'max:255', 'unique:users'
         ]);
 
         //on modifie les infos de l'utilisateur
         $user->pseudo = $request->input('pseudo');
+        $user->email = $request->input('email');
 
         if ($request->hasFile('photo') && $request->has('photo')) {
 
