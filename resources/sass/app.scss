@@ -1,18 +1,18 @@
 // Variables
-@import 'variables';
+@import "variables";
 
 // Bootstrap
-@import 'bootstrap/scss/bootstrap';
+@import "bootstrap/scss/bootstrap";
 
 // Sections
-@import 'header';
-@import 'welcome';
-@import 'footer';
-@import 'contact';
+@import "header";
+@import "welcome";
+@import "footer";
+@import "contact";
 
-body{
+body {
     max-width: 1440px;
-    margin:0 auto;
+    margin: 0 auto;
     h2 {
         color: $green;
         font-family: $mukta;
@@ -27,10 +27,10 @@ body{
 
 // Style de formulaires
 .card {
-    margin:80px 0px;
+    margin: 80px 0px;
     border-color: $orange;
     color: $green;
-    
+
     .card-header {
         font-size: 20px;
         border-color: $orange;
@@ -41,14 +41,15 @@ body{
 #form {
     color: $green;
     border-color: $green;
-    input, textarea, a {
+    input,
+    textarea,
+    a {
         border-color: $orange;
         color: $green;
     }
     .form-check-input {
         background-color: $orange;
     }
-
 
     button {
         background-color: $orange;
@@ -62,7 +63,7 @@ body{
 #list-recipes {
     color: $green;
     a i {
-        color:$green;
+        color: $green;
         padding: 0px 10px;
     }
     button {
@@ -72,7 +73,7 @@ body{
         padding: 0px 10px;
     }
 }
-// Page A propos 
+// Page A propos
 #a-propos {
     img {
         border-radius: 15px;
@@ -89,10 +90,9 @@ body{
         font-size: 20px;
     }
     a:hover {
-        color:$orange;
+        color: $orange;
     }
 }
-
 
 // Page Home
 #semainier {
@@ -102,36 +102,69 @@ body{
     border-radius: 15px;
     margin: 80px 30px;
     color: $orange;
-    #semainier-meals { 
-            display: grid;
-            grid-template-columns: repeat(8, 1fr);
-            
-        }
-        .meal-content {
-            // grid-column-start: 2;
-            // grid-column-end: 8;
-            // grid-row: 2 / 3;
-            border: 1.5px solid $green;
-            padding: 10px;
-            display: flex;
-            flex-direction: column-reverse;
-        }
-        .empty-header,
-        .day-header,
-        .meal-type-header {
-            text-align: center;
-        }
-        .meal-type {
-            grid-column-start :1;
-        }
-.day-header {
-    grid-template-columns: 1fr ;
-}
-        
-        
+    #semainier-meals {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+    }
+    .meal-content {
+        // grid-column-start: 2;
+        // grid-column-end: 8;
+        // grid-row: 2 / 3;
+        border: 1.5px solid $green;
+        padding: 10px;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .empty-header,
+    .day-header,
+    .meal-type-header {
+        text-align: center;
+    }
+    .meal-type {
+        grid-column-start: 1;
+    }
+    .day-header {
+        grid-template-columns: 1fr;
+    }
 }
 
-
+// Back Office
+#backOffice {
+    color: $green;
+    li a {
+        text-decoration: none;
+        padding: 10px 30px;
+        background-color: $orange;
+        color: $green;
+        border-radius: 5px;
+        font-weight: 600;
+        font-size: 20px;
+    }
+    li a:hover {
+        color: $white;
+        background-color: $green;
+    }
+    table {
+        td {
+            color: $green;
+            font-size: 16px;
+            i {
+                color: $green;
+                font-size: 20px;
+            }
+            button {
+                padding: 0;
+                background: none;
+                color: inherit;
+                border: none;
+                font-size: 20px;
+            }
+            #deleteUser {
+                margin-top: 0.3rem;
+            }
+        }
+    }
+}
 
 /**************** Responsive ****************/
 
@@ -139,9 +172,9 @@ body{
     #form {
         width: 100%;
         margin: 0px 10px;
-            .form-group {
-                padding: 0px 5px;
-            }
+        .form-group {
+            padding: 0px 5px;
+        }
     }
     #apropos-box {
         flex-direction: column !important;
@@ -151,5 +184,4 @@ body{
             padding: 0 !important;
         }
     }
-
 }
