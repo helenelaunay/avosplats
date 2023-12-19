@@ -16,7 +16,7 @@ class RecipeBackOfficeController extends Controller
      */
     public function index()
     {
-        $recipes = Recipe::get();
+        $recipes = Recipe::orderBy('nameRecipe', 'asc')->get();
         $recipesToCheck = Recipe::where('checkedRecipe', '=', 0)->get();
         $clickedRecipeLink = true;
         return view('BackOffice/index', compact('recipes', 'clickedRecipeLink', 'recipesToCheck'));

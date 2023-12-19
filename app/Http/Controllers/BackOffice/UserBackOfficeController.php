@@ -14,7 +14,7 @@ class UserBackOfficeController extends Controller
      */
     public function index()
     {
-        $users = User::get();
+        $users = User::orderBy('pseudo', 'asc')->get();
         $clickedUserLink = true;
         $roles = Role::get();
         return view('BackOffice/index', compact('users', 'clickedUserLink', 'roles'));

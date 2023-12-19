@@ -129,7 +129,7 @@ class UserController extends Controller
 
         if (Auth::user()->id == $id) {
 
-            $recipes = Recipe::where('user_id', '=', $id)->where('checkedRecipe', '=', true)->get();
+            $recipes = Recipe::where('user_id', '=', $id)->where('checkedRecipe', '=', true)->orderBy('nameRecipe', 'asc')->get();
 
             return view('user/recipeByUser', compact('recipes'));
         }

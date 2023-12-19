@@ -53,6 +53,6 @@
         </div>
 
         <div id="linkAddMyRecipe" class="d-flex justify-content-center">
-            <a href=" {{ route('createRecipe') }}"><i class="fa-solid fa-circle-plus pe-3"></i>Ajouter ma recette</a>
+            <a class="text-center" href="{{ route('createRecipe') }}"><i class="fa-solid fa-circle-plus pe-3"></i>Ajouter ma recette</a>
         </div>
     @endsection

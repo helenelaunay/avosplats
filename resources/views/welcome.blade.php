@@ -81,14 +81,13 @@
             <div>
                 <h2 class="text-center">Les dernières recettes ajoutées</h2>
             </div>
-            <div>
-                @foreach ($latestRecipes as $recipe)
-                <div class="recipe-container">
-                    <img src="{{ asset('photos_des_recettes/' . $recipe->photoRecipe) }}" alt="Recipe Photo">
-                    <p class="text-center">{{ $recipe->nameRecipe }}</p>
-                </div>
-            @endforeach
+            <div class="recipes-container pb-5">
+                @foreach ($latestRecipes as $key =>$recipe)
 
+                    <img class="imgRecipe{{ $key + 1}} img-fluid" src="{{ asset('photos_des_recettes/' . $recipe->photoRecipe) }}" style="object-fit: cover; width: 100%; height: 100%;" alt="Photo de la recette">
+                    <p class="titleRecipe{{ $key + 1}} text-center m-0 p-3">{{ $recipe->nameRecipe }}</p>
+            @endforeach
+            </div>
             <div class="d-flex justify-content-center">
                 <a href="{{ route('register') }}">Découvrez toutes nos recettes</a>
             </div>

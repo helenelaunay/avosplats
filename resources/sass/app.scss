@@ -91,15 +91,16 @@ body {
 
 #linkAddMyRecipe a {
     text-decoration: none;
-    color: $green;
+    background-color: $green;
+    color: $white;
     border: 2px solid $green;
     padding: 10px 30px;
     border-radius: 30px;
     margin-bottom: 30px;
+    font-size: 22px;
 }
 #linkAddMyRecipe a:hover {
     color: $orange;
-    border-color: $orange;
 }
 
 #list-recipes {
@@ -270,7 +271,8 @@ body {
     }
 }
 #link-myRecipes a {
-    color: $green;
+    color: $white;
+    background-color: $green;
     text-decoration: none;
     font-size: 22px;
     border: 2px solid $green;
@@ -282,8 +284,6 @@ body {
 }
 #link-myRecipes a:hover {
     color: $orange;
-    border-color: $orange;
-
 }
 
 // Back Office

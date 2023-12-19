@@ -34,7 +34,7 @@
 
         <div>
             <div id="linkAddMyRecipe" class="d-flex justify-content-center">
-            <a href=" {{ route('createRecipe') }}"><i class="fa-solid fa-circle-plus pe-3"></i> Ajouter une nouvelle
+            <a class="text-center" href="{{ route('createRecipe') }}"><i class="fa-solid fa-circle-plus pe-3"></i> Ajouter une nouvelle
                 recette</a>
         </div>
     </main>

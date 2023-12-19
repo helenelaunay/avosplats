@@ -50,7 +50,7 @@
                             </table>
                         @endforeach
                     @else
-                        <h4 class="mt-4">Il n'y a pas de recette(s) en attente de validation.</h4>
+                        <h4 class="mt-4">Aucune(s) recette(s) en attente de validation.</h4>
                     @endif
 
                     <h3 class="mt-4 ps-5">Liste des recettes :</h3>
