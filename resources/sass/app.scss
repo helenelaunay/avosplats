@@ -18,7 +18,7 @@ body {
         font-family: $mukta;
         font-weight: 600;
     }
-    p {
+    p, li{
         color: $green;
         font-family: $lato;
         font-size: 20px;
@@ -43,8 +43,8 @@ body {
     border-color: $green;
     input,
     textarea,
-    a {
-        border-color: $orange;
+    a, 
+    i {
         color: $green;
     }
     .form-check-input {
@@ -60,11 +60,57 @@ body {
     }
 }
 
+#tableRecipe {
+    input,
+    a {
+        color: $green;
+        i {
+            font-size: 22px;
+        }
+        i:hover {
+            color: $orange;
+        }
+    }
+    #flexRadioDefault1 {
+        background-color: $orange !important;
+    }
+    button {
+        border: none;
+        background: none;
+        color: $green;
+        padding: 5px 15px;
+    }
+    button:hover {
+        background-color: $orange;
+        color: $green;
+        padding: 5px 15px;
+        border-color: $orange;
+        border-radius: 5px;
+    }
+}
+
+#linkAddMyRecipe a {
+    text-decoration: none;
+    color: $green;
+    border: 2px solid $green;
+    padding: 10px 30px;
+    border-radius: 30px;
+    margin-bottom: 30px;
+}
+#linkAddMyRecipe a:hover {
+    color: $orange;
+    border-color: $orange;
+}
+
 #list-recipes {
     color: $green;
     a i {
         color: $green;
         padding: 0px 10px;
+        font-size: 22px;
+    }
+    i:hover {
+        color: $orange;
     }
     button {
         border: none;
@@ -72,6 +118,7 @@ body {
         color: $green;
         padding: 0px 10px;
     }
+    
 }
 // Page A propos
 #a-propos {
@@ -96,36 +143,147 @@ body {
 
 // Page Home
 #semainier {
-    //background-image: url(http://[::1]:5173/public/images/bg-accueil-contact.webp);
-    background-size: contain;
-    background-position: unset;
+    background-image: url(http://[::1]:5173/public/images/bg-accueil-contact.webp);
+    background-size: cover;
+    background-position: right;
     border-radius: 15px;
-    margin: 80px 30px;
-    color: $orange;
+    margin: 80px 20px;
+    color: $white;
+    font-family: $mukta;
+    #links-semainier {
+        a {
+            color: $white;
+            i {
+                font-size: 25px;
+            }
+        }
+        button {
+            border: none;
+            padding: 0;
+            background: none;
+            color: inherit;
+            i {
+                font-size: 25px;
+            }
+        }
+    }
+    h1 {
+        font-weight: 600;
+    }
+
     #semainier-meals {
         display: grid;
-        grid-template-columns: repeat(8, 1fr);
+        grid-template-columns: 80px repeat(7, 1fr) 20px;
+        grid-template-rows: 30px repeat(2, 160px) 100px;
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+        color: $green;
+        p {
+            font-size: 16px;
+        }
+        .div1 {
+            grid-area: 1 / 2 / 2 / 3;
+        }
+        .div2 {
+            grid-area: 1 / 3 / 2 / 4;
+        }
+        .div3 {
+            grid-area: 1 / 4 / 2 / 5;
+        }
+        .div4 {
+            grid-area: 1 / 5 / 2 / 6;
+        }
+        .div5 {
+            grid-area: 1 / 6 / 2 / 7;
+        }
+        .div6 {
+            grid-area: 1 / 7 / 2 / 8;
+        }
+        .div7 {
+            grid-area: 1 / 8 / 2 / 9;
+        }
+        .div8 {
+            grid-area: 2 / 1 / 3 / 2;
+            align-self: center;
+        }
+        .div9 {
+            grid-area: 3 / 1 / 4 / 2;
+            align-self: center;
+        }
+        .box-meal {
+            display: flex;
+            flex-direction: column-reverse;
+            justify-content: center;
+            align-items: center;
+            background-color: $white;
+            border: 1px solid $green;
+            border-radius: 5px;
+            button {
+                border: none;
+                padding: 0;
+                background: none;
+                color: inherit;
+            }
+        }
+        .lundi_midi {
+            grid-area: 2 / 2 / 3 / 3;
+        }
+        .mardi_midi {
+            grid-area: 2 / 3 / 3 / 4;
+        }
+        .mercredi_midi {
+            grid-area: 2 / 4 / 3 / 5;
+        }
+        .jeudi_midi {
+            grid-area: 2 / 5 / 3 / 6;
+        }
+        .vendredi_midi {
+            grid-area: 2 / 6 / 3 / 7;
+        }
+        .samedi_midi {
+            grid-area: 2 / 7 / 3 / 8;
+        }
+        .dimanche_midi {
+            grid-area: 2 / 8 / 3 / 9;
+        }
+        .lundi_soir {
+            grid-area: 3 / 2 / 4 / 3;
+        }
+        .mardi_soir {
+            grid-area: 3 / 3 / 4 / 4;
+        }
+        .mercredi_soir {
+            grid-area: 3 / 4 / 4 / 5;
+        }
+        .jeudi_soir {
+            grid-area: 3 / 5 / 4 / 6;
+        }
+        .vendredi_soir {
+            grid-area: 3 / 6 / 4 / 7;
+        }
+        .samedi_soir {
+            grid-area: 3 / 7 / 4 / 8;
+        }
+        .dimanche_soir {
+            grid-area: 3 / 8 / 4 / 9;
+        }
     }
-    .meal-content {
-        // grid-column-start: 2;
-        // grid-column-end: 8;
-        // grid-row: 2 / 3;
-        border: 1.5px solid $green;
-        padding: 10px;
-        display: flex;
-        flex-direction: column-reverse;
+}
+#link-myRecipes a {
+    color: $green;
+    text-decoration: none;
+    font-size: 22px;
+    border: 2px solid $green;
+    border-radius: 30px;
+    padding: 10px 30px;
+    i {
+        font-size: 22px;
     }
-    .empty-header,
-    .day-header,
-    .meal-type-header {
-        text-align: center;
-    }
-    .meal-type {
-        grid-column-start: 1;
-    }
-    .day-header {
-        grid-template-columns: 1fr;
-    }
+}
+#link-myRecipes a:hover {
+    color: $orange;
+    border-color: $orange;
+
 }
 
 // Back Office

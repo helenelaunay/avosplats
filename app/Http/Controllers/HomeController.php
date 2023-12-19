@@ -27,6 +27,19 @@ class HomeController extends Controller
         $user = auth()->user();
         $menus = Menu::where("user_id", "=", $user->id)->latest()->take(2)->get();
 
-        return view('home', compact('menus', 'user'));
+        $mealsMidi = [];
+        $mealsSoir = [];
+        foreach ($menus as $menu) {
+            foreach ($menu->meals as $meal) {
+                if (str_contains($meal->nameMeal, 'midi')) {
+                    array_push($mealsMidi, $meal);
+                }
+                else {
+                    array_push($mealsSoir, $meal);
+                }
+            }
+        }
+        
+        return view('home', compact('menus', 'user', 'mealsMidi', 'mealsSoir'));
     }
 }

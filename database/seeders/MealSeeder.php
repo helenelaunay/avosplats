@@ -15,72 +15,72 @@ class MealSeeder extends Seeder
     {
        // Création des différents repas
        Meal::create([
-        'nameMeal' => 'lundi midi',
+        'nameMeal' => 'lundi_midi',
         'recipe_id' => null 
        ]);
 
        Meal::create([
-        'nameMeal' => 'lundi soir',
+        'nameMeal' => 'lundi_soir',
         'recipe_id' => null  
        ]);
 
        Meal::create([
-        'nameMeal' => 'mardi midi',
+        'nameMeal' => 'mardi_midi',
         'recipe_id' => null  
        ]);
 
        Meal::create([
-        'nameMeal' => 'mardi soir',
+        'nameMeal' => 'mardi_soir',
         'recipe_id' => null  
        ]);
 
        Meal::create([
-        'nameMeal' => 'mercredi midi',
+        'nameMeal' => 'mercredi_midi',
         'recipe_id' => null  
        ]);
 
        Meal::create([
-        'nameMeal' => 'mercredi soir',
+        'nameMeal' => 'mercredi_soir',
         'recipe_id' => null  
        ]);
 
        Meal::create([
-        'nameMeal' => 'jeudi midi',
+        'nameMeal' => 'jeudi_midi',
         'recipe_id' => null  
        ]);
 
        Meal::create([
-        'nameMeal' => 'jeudi soir',
+        'nameMeal' => 'jeudi_soir',
         'recipe_id' => null  
        ]);
 
        Meal::create([
-        'nameMeal' => 'vendredi midi',
+        'nameMeal' => 'vendredi_midi',
         'recipe_id' => null   
        ]);
 
        Meal::create([
-        'nameMeal' => 'vendredi soir',
+        'nameMeal' => 'vendredi_soir',
         'recipe_id' => null   
        ]);
 
        Meal::create([
-        'nameMeal' => 'samedi midi',
+        'nameMeal' => 'samedi_midi',
         'recipe_id' => null  
        ]);
 
        Meal::create([
-        'nameMeal' => 'samedi soir',
+        'nameMeal' => 'samedi_soir',
         'recipe_id' => null  
        ]);
 
        Meal::create([
-        'nameMeal' => 'dimanche midi',
+        'nameMeal' => 'dimanche_midi',
         'recipe_id' => null   
        ]);
 
        Meal::create([
-        'nameMeal' => 'dimanche soir',
+        'nameMeal' => 'dimanche_soir',
         'recipe_id' => null  
        ]);
     }

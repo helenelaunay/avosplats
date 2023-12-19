@@ -66,15 +66,15 @@ class MenuController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Menu $menu)
+    public function update(Request $request, $id)
     {
+        $menu = Menu::find($id);
         $request->validate([
             'nameMenu' => 'required|max:150',
         ]);
 
         //on modifie le nom du Menu
         $menu->nameMenu = $request->input('nameMenu'); 
-        $menu->user_id = Auth::user()->id;  
 
         //on sauvegarde les changement en db
         $menu->save();

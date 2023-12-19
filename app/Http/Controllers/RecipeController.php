@@ -17,7 +17,7 @@ class RecipeController extends Controller
     {
         $meal_id = $request->meal_id;
         $users = User::get();
-        $recipes = Recipe::where('checkedRecipe', '=', true)->get();
+        $recipes = Recipe::where('checkedRecipe', '=', true)->orderBy('nameRecipe', 'asc')->get();
         return view('recipe/index', compact('recipes', 'meal_id', 'users'));
     }
 
