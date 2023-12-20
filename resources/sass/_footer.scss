@@ -23,9 +23,10 @@ footer {
  
 #copy {
     background-color: $black;
-    height: 25px;
+    min-height: 25px;
+    max-height: 70px;
     p, a {
-        font-size: 14px;
+        font-size: 16px;
         color: $white;
     }
 }
@@ -33,7 +34,7 @@ footer {
 
 /**************** Responsive ****************/
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 768px) {
     footer {
         height: 380px;
         #footer-infos {
@@ -54,10 +55,9 @@ footer {
             }    
         }
         #copy {
-            height: 55px;
             padding: 0px, 20px;
             p, a {
-                font-size: 11px;
+                font-size: 16px;
         }
     }
 }

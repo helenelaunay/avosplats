@@ -16,12 +16,12 @@
             <div id="section-infos-container1">
                 <div id="section-infos-bloc1">
                     <div>
-                        <h2>Organisez vos menus à la semaine</h2>
+                        <h2 id="bloc1-title">Organisez vos menus à la semaine</h2>
                     </div>
                     <div id="bloc1-image-mobile">
                         <img src="{{ asset('images/screen-menu.webp') }}" class="img-fluid" alt="">
                     </div>
-                    <div>
+                    <div id="bloc1-text">
                         <ul>
                             <li>Editez simplement votre menu de la semaine en ajoutant une recette ou en la supprimant</li>
                             <li>Remplissez autant de repas que souhaité</li>
@@ -31,9 +31,9 @@
                     </div>
                 </div>
 
-                {{-- <div id="bloc1-image-desktop"> --}}
-                <img src="{{ asset('images/screen-menu.webp') }}" class="img-fluid" alt="">
-                {{-- </div> --}}
+                <div id="bloc1-image-desktop">
+                <img src="{{ asset('images/screen-menu.webp') }}" class="img-fluid" alt="écran du profil utilisateur">
+                </div>
 
 
             </div>
@@ -84,11 +84,18 @@
             <div class="recipes-container pb-5">
                 @foreach ($latestRecipes as $key =>$recipe)
                     <img class="imgRecipe{{ $key + 1 }} img-fluid" src="{{ asset('photos_des_recettes/' . $recipe->photoRecipe) }}" style="object-fit: cover; width: 100%; height: 100%;" alt="Photo de la recette">
-                    <p class="titleRecipe{{ $key + 1 }} text-center m-0 p-3">{{ $recipe->nameRecipe }}</p>
+                    <p class="titleRecipe{{ $key + 1 }} text-center m-0">{{ $recipe->nameRecipe }}</p>
             @endforeach
             </div>
+
+            <div class="recipes-container-mobile">
+                @foreach ($latestRecipes as $key => $recipe)
+                    <img class="mobileImgRecipe{{ $key + 1 }} img-fluid" src="{{ asset('photos_des_recettes/' . $recipe->photoRecipe) }}" style="object-fit: cover; width: 100%; height: 100%;" alt="Photo de la recette">
+                    <p class="mobileTitleRecipe{{ $key + 1 }} text-center m-0">{{ $recipe->nameRecipe }}</p>
+                @endforeach
+            </div>
             <div class="d-flex justify-content-center">
-                <a href="{{ route('register') }}">Découvrez toutes nos recettes</a>
+                <a  class="text-center" href="{{ route('register') }}">Découvrez toutes nos recettes</a>
             </div>
         </section>
 

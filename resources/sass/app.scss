@@ -148,6 +148,7 @@ body {
 
 // Page Home
 #semainier {
+    display: block;
     background-image: url(http://[::1]:5173/public/images/bg-accueil-contact.webp);
     background-size: cover;
     background-position: right;
@@ -274,6 +275,11 @@ body {
         }
     }
 }
+
+#semainier-mobile {
+    display: none;
+}
+
 #link-myRecipes a {
     color: $white;
     background-color: $green;
@@ -328,7 +334,16 @@ body {
     }
 }
 
+
 /**************** Responsive ****************/
+@media screen and (max-width: 768px) {
+#semainier {
+    display: none;
+}
+#semainier-mobile {
+    display: block;
+}
+}
 
 @media screen and (max-width: 575px) {
     #form {
@@ -346,4 +361,7 @@ body {
             padding: 0 !important;
         }
     }
+
+
+
 }
