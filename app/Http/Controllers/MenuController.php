@@ -40,17 +40,103 @@ class MenuController extends Controller
 
         $menu = Menu::create([
             'nameMenu' => $request->nameMenu,
-            'user_id' => auth::user()->id, 
+            'user_id' => auth::user()->id,
         ]);
 
-        $meals = Meal::get();
+        Meal::create([
+            'nameMeal' => 'lundi_midi',
+            'recipe_id' => null,
+            'menu_id' => $menu->id
+           ]);
+    
+           Meal::create([
+            'nameMeal' => 'lundi_soir',
+            'recipe_id' => null,
+            'menu_id' => $menu->id
+           ]);
+    
+           Meal::create([
+            'nameMeal' => 'mardi_midi',
+            'recipe_id' => null,
+            'menu_id' => $menu->id
+           ]);
+    
+           Meal::create([
+            'nameMeal' => 'mardi_soir',
+            'recipe_id' => null,
+            'menu_id' => $menu->id
+           ]);
+    
+           Meal::create([
+            'nameMeal' => 'mercredi_midi',
+            'recipe_id' => null,
+            'menu_id' => $menu->id
+           ]);
+    
+           Meal::create([
+            'nameMeal' => 'mercredi_soir',
+            'recipe_id' => null,
+            'menu_id' => $menu->id
+           ]);
+    
+           Meal::create([
+            'nameMeal' => 'jeudi_midi',
+            'recipe_id' => null,
+            'menu_id' => $menu->id
+           ]);
+    
+           Meal::create([
+            'nameMeal' => 'jeudi_soir',
+            'recipe_id' => null,
+            'menu_id' => $menu->id
+           ]);
+    
+           Meal::create([
+            'nameMeal' => 'vendredi_midi', 
+            'recipe_id' => null,
+            'menu_id' => $menu->id
+           ]);
+    
+           Meal::create([
+            'nameMeal' => 'vendredi_soir', 
+            'recipe_id' => null,
+            'menu_id' => $menu->id
+           ]);
+    
+           Meal::create([
+            'nameMeal' => 'samedi_midi',
+            'recipe_id' => null,
+            'menu_id' => $menu->id
+           ]);
+    
+           Meal::create([
+            'nameMeal' => 'samedi_soir',
+            'recipe_id' => null,
+            'menu_id' => $menu->id
+           ]);
+    
+           Meal::create([
+            'nameMeal' => 'dimanche_midi', 
+            'recipe_id' => null,
+            'menu_id' => $menu->id
+           ]);
+    
+           Meal::create([
+            'nameMeal' => 'dimanche_soir',
+            'recipe_id' => null,
+            'menu_id' => $menu->id
+           ]);
+
+        $meals = Meal::latest()->take(14)->orderBy('id', 'asc')->get();
+
+
         foreach ($meals as $meal) {
             DB::table('meals_menus')->insert([
                 'meal_id' => $meal->id,
                 'menu_id' => $menu->id
-            ]);            
-            
+            ]);                        
         }
+        //dd( $menu);
         return redirect()->route('home')->with('message', 'Votre menu a bien été créé !');
     }
 
@@ -90,6 +176,7 @@ class MenuController extends Controller
     {
         if (Auth::user()->id == $request->user_id) {
             $menu = Menu::find($id);
+            $menu->meals()->detach();
             $menu->delete(); // on réalise la suppression du menu
             return redirect()->route('home')->with('message', 'Le menu a bien été supprimé.');
         } else {

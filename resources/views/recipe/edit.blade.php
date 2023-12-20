@@ -24,6 +24,7 @@
                             value="{{ $recipe->nameRecipe }}">
                     </div>
                     <div id="form-input-image" class="form-group mt-2">
+                        <img  class="mb-2" src="{{ asset('photos_des_recettes/' . $recipe->photoRecipe) }}" alt="Photo de la recette">
                         <label class="input-groupe-text" for="photoRecipe"></label>
                         <input type="file" class="form-control mb-3" name="photoRecipe" id="photoRecipe">
                     </div>

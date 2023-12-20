@@ -13,6 +13,8 @@ class Meal extends Model
 
     protected $fillable = [
         'nameMeal',
+        'menu_id',
+        'recipe_id'
     ];
 
     public function user()
@@ -22,7 +24,7 @@ class Meal extends Model
 
     public function menus()
     {
-        return $this->belongsToMany(Menu::class);
+        return $this->belongsToMany(Menu::class, 'meals_menus');
     }
 
     public function recipe()

@@ -28,6 +28,7 @@
                                 <label class="form-check-label mb-4" for="flexRadioDefault1">
                                     {{ $recipe->nameRecipe }} </label>
                                 <input type="hidden" value="{{ $meal_id }}" name="meal_id">
+                                <input type="hidden" value="{{ $menu_id }}" name="menu_id">
 
                             </td>
                             <td>

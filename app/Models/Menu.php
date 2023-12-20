@@ -21,4 +21,9 @@ class Menu extends Model
     {
         return $this->belongsToMany(Meal::class, 'meals_menus');
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

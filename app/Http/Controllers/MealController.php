@@ -15,7 +15,7 @@ class MealController extends Controller
 
         $meal->save();
 
-        return redirect()->route('home')->with('message', 'Recette ajoutée');
+        return redirect()->route('home')->with('message', 'Votre recette a été ajoutée');
     }
 
     public function updateRecipeMeal(Request $request)

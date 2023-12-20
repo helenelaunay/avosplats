@@ -83,9 +83,8 @@
             </div>
             <div class="recipes-container pb-5">
                 @foreach ($latestRecipes as $key =>$recipe)
-
-                    <img class="imgRecipe{{ $key + 1}} img-fluid" src="{{ asset('photos_des_recettes/' . $recipe->photoRecipe) }}" style="object-fit: cover; width: 100%; height: 100%;" alt="Photo de la recette">
-                    <p class="titleRecipe{{ $key + 1}} text-center m-0 p-3">{{ $recipe->nameRecipe }}</p>
+                    <img class="imgRecipe{{ $key + 1 }} img-fluid" src="{{ asset('photos_des_recettes/' . $recipe->photoRecipe) }}" style="object-fit: cover; width: 100%; height: 100%;" alt="Photo de la recette">
+                    <p class="titleRecipe{{ $key + 1 }} text-center m-0 p-3">{{ $recipe->nameRecipe }}</p>
             @endforeach
             </div>
             <div class="d-flex justify-content-center">

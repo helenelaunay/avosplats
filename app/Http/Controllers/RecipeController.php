@@ -16,9 +16,10 @@ class RecipeController extends Controller
     public function index(Request $request)
     {
         $meal_id = $request->meal_id;
+        $menu_id = $request->menu_id;
         $users = User::get();
         $recipes = Recipe::where('checkedRecipe', '=', true)->orderBy('nameRecipe', 'asc')->get();
-        return view('recipe/index', compact('recipes', 'meal_id', 'users'));
+        return view('recipe/index', compact('recipes', 'meal_id', 'menu_id', 'users'));
     }
 
     /**

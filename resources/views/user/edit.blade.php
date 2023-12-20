@@ -27,8 +27,9 @@
                                 value="{{ $user->email }}" id="email">
                         </div>
                         <div id="form-input-image" class="form-group mt-2">
+                            <img  class="mb-2" src="{{ asset('photos_de_profil/' . $user->photo) }}" alt="Photo de profil">
                             <label for="image">Nouvelle photo de profil</label>
-                            <input type="file" class="form-control mb-3" name="photo" value="{{ $user->photo }}"
+                            <input type="file" class="form-control mb-3" name="photo"
                                 id="photo">
                         </div>
                         <div class="d-flex justify-content-end">

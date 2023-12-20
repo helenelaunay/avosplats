@@ -22,14 +22,8 @@ class Recipe extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function meals()
+    public function meal()
     {
-        return $this->hasMany(Meal::class);
-    }
-
-    public function tags()
-    {
-        return $this->belongsToMany(Tag::class);
-    }
-    
+        return $this->belongsTo(Meal::class);
+    }    
 }

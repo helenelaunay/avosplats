@@ -16,10 +16,6 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             UserSeeder::class,
             RecipeSeeder::class,
-            MealSeeder::class,
-            TagSeeder::class,
-            MenuSeeder::class,
-            MealsMenusSeeder::class,
         ]);
     }
 }
