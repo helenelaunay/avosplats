@@ -14,15 +14,16 @@ class DeniedRecipeMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $data;
     /**
      * Crée une nouvelle instance de message.
      *
      * @param  array  $data
      * @return void
      */
-    public function __construct()
+    public function __construct($data)
     {
-        //
+        $this->data = $data;
     }
 
     /**

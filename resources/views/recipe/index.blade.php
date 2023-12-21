@@ -11,8 +11,8 @@
             <table id="tableRecipe" class="ms-3 me-3">
                 <tr>
                     <td></td>
-                    <td></td>
-                    <td class="text-center pt-3 pb-3">Voir la recette</td>
+                    <td class="text-left fw-bold pt-3 pb-3">Sélectionner la recette</td>
+                    <td class="text-center fw-bold pt-3 pb-3">Voir la recette</td>
                     <td></td>
                 </tr>
                 <form class="col-10 mx-auto" action="{{ route('addRecipeMeal') }}" method="POST">

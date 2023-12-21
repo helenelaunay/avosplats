@@ -34,6 +34,16 @@
 
             submitBtn.disabled = !checkBox.checked;
         }
+
+        // function validateForm() {
+        //     var radioCheck = document.getElementById('flexRadioDefault1');
+        //     if (!radioCheck.checked) {
+        //         alert('Veuillez sélectionner une recette');
+        //         return false; // Empêche la soumission du formulaire
+        //     }
+        //     // Continuez avec le traitement du formulaire si le bouton est coché
+        //     return true;
+        // }
     </script>
 
 </head>
@@ -102,8 +112,10 @@
                                     </div>
                                     <div id="navbarUserConnectMobile" class="d-flex flex-column d-md-none">
                                         <a href="{{ url('/home') }}">Mon profil</a>
-                                        <a href="{{ route('editUser', $user = Auth::user()) }}">{{ __('Modifier mes informations') }}</a>
-                                        <a href="{{ route('editPasswordUser', $user = Auth::user()) }}">{{ __('Modifier mon mot de passe') }}</a>
+                                        <a
+                                            href="{{ route('editUser', $user = Auth::user()) }}">{{ __('Modifier mes informations') }}</a>
+                                        <a
+                                            href="{{ route('editPasswordUser', $user = Auth::user()) }}">{{ __('Modifier mon mot de passe') }}</a>
                                         @if (Auth::user()->role_id == 2)
                                             <a href="{{ route('indexBackOffice') }}">{{ __('Espace Administrateur') }}</a>
                                         @endif
@@ -118,7 +130,7 @@
                                             @csrf
                                         </form>
                                     </div>
-                                    <div  id="menu-user-connect" class="d-flex align-items-center d-none d-md-flex">
+                                    <div id="menu-user-connect" class="d-flex align-items-center d-none d-md-flex">
                                         <a href="{{ url('/home') }}"><img id="photo_profil" class="rounded-circle"
                                                 src="{{ asset('photos_de_profil/' . Auth::user()->photo) }}"
                                                 alt="Photo de profil"></a>
@@ -129,7 +141,7 @@
 
                                             <div id="navbar-drop-connect" class="dropdown-menu dropdown-menu-end"
                                                 aria-labelledby="navbarDropdown">
-                                                
+
                                                 <a class="dropdown-item" href="{{ url('/home') }}">Mon profil</a>
                                                 <a class="dropdown-item"
                                                     href="{{ route('editUser', $user = Auth::user()) }}">{{ __('Modifier mes informations') }}</a>
@@ -149,7 +161,7 @@
                                                     class="d-none">
                                                     @csrf
                                                 </form>
-                                            
+
 
                                             </div>
                                         </li>

@@ -89,17 +89,21 @@ class RecipeBackOfficeController extends Controller
     {
         $recipe = Recipe::find($id);
         $user = User::find($recipe->user_id);
-        $recipe->delete();
-        //suppression de la photo de la recette si elle n'est pas 'default_recipe.jpg'
-        if ($recipe->photo !== 'default_recipe.jpg') {
-            unlink(public_path('photos_des_recettes' . '/' . $recipe->photoRecipe));
-        }
         //vérification que l'utilisateur existe
         if ($user) {
+            $data= [
+                'nameRecipe' => $recipe->nameRecipe
+            ];
 
         // Envoi d'e-mail
-            Mail::to($user->email)->send(new \App\Mail\DeniedRecipeMail());
+            Mail::to($user->email)->send(new \App\Mail\DeniedRecipeMail($data));
         }
+        if ($recipe->photoRecipe !== 'default_recipe.jpg') {
+            unlink(public_path('photos_des_recettes' . '/' . $recipe->photoRecipe));
+        }
+        
+        $recipe->delete();
+        //suppression de la photo de la recette si elle n'est pas 'default_recipe.jpg'
        
 
         return redirect()->route('indexBackOffice')->with('message', 'La recette a bien été supprimée.');

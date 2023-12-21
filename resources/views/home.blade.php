@@ -146,7 +146,7 @@
                             @csrf
                             @method('delete')
                             <input type="hidden" value="{{ $menu->user_id }}" name="user_id">
-                            <button type="submit"><i class="fa-regular fa-trash-can"></i></button>
+                            <button type="submit" style="width: 50px"><i class="fa-regular fa-trash-can"></i></button>
                         </form>
                     </div>
 
