@@ -83,7 +83,7 @@
     }
 }
 
-#section-infos-container2 {
+#section-infos-container2-desktop {
     margin: 40px 0px;
     background-color: $green;
     border-radius: 15px;
@@ -97,13 +97,31 @@
     }
     #section-infos-bloc2 {
         width: 85%;
-        padding: 30px 150px;
+        padding: 30px 140px;
         p {
-            width: 70%;
+            width: 75%;
             color: $white;
         }
     }
 }
+
+#section-infos-container2-mobile {
+    margin: 40px 0px;
+    background-color: $green;
+    border-radius: 15px;
+    width: 90%;
+    display: none;
+    #section-infos-bloc2-mobile {
+        margin: 30px 0px;
+        img {
+            width: 100%;
+        }
+        p {
+            color: $white;
+        }
+    }
+}
+
 
 #section-infos-container3 {
     margin: 40px 0px;
@@ -275,20 +293,44 @@
 
 /**************** Responsive ****************/
 
-// #bloc1-image-mobile {
-//     display: flex;
-// }
-
-
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1024px) {
     #hero {
         h1 {
             width: 60%;
         }
         #hero-links {
+
             width: 60%;
         }
     }
+
+#section-infos-container1 {
+   
+    #section-infos-bloc1 {
+        width: 50%;
+        #bloc1-image-mobile {
+            display: none;
+        }
+    }
+    img {
+        width: 600px;
+    }
+}
+
+#section-infos-container2-desktop {
+    margin: 40px 0px;
+    width: 90%;
+    #section-infos-bloc2 {
+        width: 100%;
+        padding: 10px 20px;
+        p {
+            width: 80%;
+        }
+    }
+}
+}
+
+@media screen and (max-width: 900px) {
 
     #pre-footer {
         height: 17em;
@@ -300,15 +342,18 @@
 
 @media screen and (max-width: 768px) {
     #hero {
-        height: 40em;
         align-items: center;
         h1 {
-            width: 70%;
+            width: 80%;
+            margin-left: 0px;
         }
         #hero-links {
-            width: 70%;
+            width: 80%;
+            margin-left: 0px;
         }
     }
+
+
 
     #section-infos {
         display: flex;
@@ -329,54 +374,43 @@
     }
     
     #section-infos-container1 {
-        margin: 40px 70px 40px 40px;
-        display: flex;
-        justify-content: space-around;
+        margin: 40px;
+        justify-content: center;
         #section-infos-bloc1 {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            padding-right: 60px;
-            width: 40%;
+            width: 100%;
+            padding: 0px;
+            h2 {
+                text-align: center;
+                margin-top: 30px;
+                margin-bottom: 20px;
+            }
+            #bloc1-text {
+                margin-top: 30px;
+            }
             #bloc1-image-mobile {
+                display: flex;
+                justify-content: center;
+            }
+        }
+            #bloc1-image-desktop {
                 display: none;
             }
-            
-            }
-            #bloc1-image-desktop img {
-                max-width: 800px;
-            }
         }
-        
-    
-    
-    #section-infos-container2 {
-        margin: 40px 0px;
-        background-color: $green;
-        border-radius: 15px;
-        width: 90%;
-        height: 270px;
+    #section-infos-container2-desktop {
+        display: none;
+    }
+    #section-infos-container2-mobile {
         display: flex;
-        img {
-            width: 200px;
-            border-top-left-radius: 15px;
-            border-bottom-left-radius: 15px;
-        }
-        #section-infos-bloc2 {
-            width: 85%;
-            padding: 30px 150px;
-            p {
-                width: 70%;
-                color: $white;
-            }
-        }
     }
     
     #section-infos-container3 {
         margin: 40px 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         h2 {
-            text-align: end;
-            padding-right: 150px;
+            text-align: center;
+            padding: 0px 10px;
         }
         p {
             margin-top: 20px;
@@ -385,29 +419,28 @@
             color: $white;
             padding: 20px 40px;
             border-radius: 60px;
-            width: 70%;
+            width: 90%;
         }
         #mockups-box {
-            display: flex;
-            justify-content: space-around;
-            align-items: end;
+            flex-direction: column;
+            align-items: center;
+            #imgMobile {
+                padding-left: 30px;
+                padding-bottom: 20px;
+            }
+            #imgTablet {
+                padding-right: 40px;
+                padding-bottom: 20px;
+            }
         }
     }
     
-
-
-
-
-
-
-
-
 
     #section-recipes .recipes-container {
         display: none;
     }
     #section-recipes {
-        padding: 5px 30px;
+        padding: 50px 30px;
         .recipes-container-mobile {
             display: grid;
             grid-template-columns: 10px 300px 10px;
@@ -461,7 +494,7 @@
             }
         }
         a {
-            margin: 30px 0px;
+            margin: 70px 0px;
         }
     }
 
@@ -490,6 +523,52 @@
         align-items: center;
         #container-pre-footer {
             width: 80%;
+        }
+    }
+}
+
+@media screen and (max-width: 425px) {
+
+    #hero {
+        #hero-links {
+            #hero-link-register {
+                width: 80%;
+                padding: 20px 30px;
+            }
+        }
+    }
+    
+#section-infos-container1 {
+    margin: 10px;
+    
+    #section-infos-bloc1 {
+        width: 100%;
+        #bloc1-image-mobile {
+            display: flex;
+            justify-content: center;
+        }
+    }
+        #bloc1-image-desktop {
+            display: none;
+        }
+    }
+
+    #section-contact {
+        height: 25em;
+        div {
+            width: 100%;
+            height: 25em;
+            h2 {
+                margin-top: 20px;
+                padding-right: 20px;
+                font-family: $mukta;
+                font-size: 35px;
+                text-align: right;
+            }
+            a {
+                font-size: 24px;
+                margin: 0;
+            }
         }
     }
 }

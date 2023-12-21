@@ -30,15 +30,12 @@
                         </ul>
                     </div>
                 </div>
-
                 <div id="bloc1-image-desktop">
-                <img src="{{ asset('images/screen-menu.webp') }}" class="img-fluid" alt="écran du profil utilisateur">
+                    <img src="{{ asset('images/screen-menu.webp') }}" class="img-fluid" alt="écran du profil utilisateur">
                 </div>
-
-
             </div>
 
-            <div id="section-infos-container2">
+            <div id="section-infos-container2-desktop">
 
                 <img src="{{ asset('images/recette-infos.webp') }}" class="img-fluid" alt="cuisiner">
 
@@ -52,6 +49,18 @@
                     </div>
                 </div>
             </div>
+
+            <div id="section-infos-container2-mobile">
+                <div id="section-infos-bloc2-mobile" class="d-flex flex-column justify-content-around">
+                    <h2 class="text-center mt-3 mb-4 ps-2 pe-2">Ajoutez vos recettes ou découvrez celles de notre communauté
+                    </h2>
+                    <img src="{{ asset('images/recette-infos.webp') }}" class="img-fluid" alt="cuisiner">
+                    <p class="text-center mt-5 mb-3 ps-2 pe-2">Retrouvez un large choix de recettes simples et rapides du
+                        quotidien ou plus élaborées,
+                        des recettes pour des évènements festifs, etc. </p>
+                </div>
+            </div>
+
             <div id="section-infos-container3">
                 <div>
                     <h2>Accédez à vos menus depuis n'importe où !</h2>
@@ -64,11 +73,10 @@
                 </div>
                 <div id="mockups-box">
                     <div>
-                        <img src="{{ asset('images/MockUpMobile.png') }}" alt="MockUp Mobile">
-
+                        <img id="imgMobile" src="{{ asset('images/MockUpMobile.png') }}" alt="MockUp Mobile">
                     </div>
                     <div>
-                        <img src="{{ asset('images/MockUpTablet.png') }}" alt="MockUp Tablet">
+                        <img id="imgTablet" src="{{ asset('images/MockUpTablet.png') }}" alt="MockUp Tablet">
                     </div>
                     <div>
                         <img src="{{ asset('images/MockUpDesktop.png') }}" alt="MockUp Desktop">
@@ -82,20 +90,24 @@
                 <h2 class="text-center">Les dernières recettes ajoutées</h2>
             </div>
             <div class="recipes-container pb-5">
-                @foreach ($latestRecipes as $key =>$recipe)
-                    <img class="imgRecipe{{ $key + 1 }} img-fluid" src="{{ asset('photos_des_recettes/' . $recipe->photoRecipe) }}" style="object-fit: cover; width: 100%; height: 100%;" alt="Photo de la recette">
+                @foreach ($latestRecipes as $key => $recipe)
+                    <img class="imgRecipe{{ $key + 1 }} img-fluid"
+                        src="{{ asset('photos_des_recettes/' . $recipe->photoRecipe) }}"
+                        style="object-fit: cover; width: 100%; height: 100%;" alt="Photo de la recette">
                     <p class="titleRecipe{{ $key + 1 }} text-center m-0">{{ $recipe->nameRecipe }}</p>
-            @endforeach
+                @endforeach
             </div>
 
             <div class="recipes-container-mobile">
                 @foreach ($latestRecipes as $key => $recipe)
-                    <img class="mobileImgRecipe{{ $key + 1 }} img-fluid" src="{{ asset('photos_des_recettes/' . $recipe->photoRecipe) }}" style="object-fit: cover; width: 100%; height: 100%;" alt="Photo de la recette">
+                    <img class="mobileImgRecipe{{ $key + 1 }} img-fluid"
+                        src="{{ asset('photos_des_recettes/' . $recipe->photoRecipe) }}"
+                        style="object-fit: cover; width: 100%; height: 100%;" alt="Photo de la recette">
                     <p class="mobileTitleRecipe{{ $key + 1 }} text-center m-0">{{ $recipe->nameRecipe }}</p>
                 @endforeach
             </div>
             <div class="d-flex justify-content-center">
-                <a  class="text-center" href="{{ route('register') }}">Découvrez toutes nos recettes</a>
+                <a class="text-center" href="{{ route('register') }}">Découvrez toutes nos recettes</a>
             </div>
         </section>
 
