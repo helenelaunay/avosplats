@@ -18,7 +18,8 @@ body {
         font-family: $mukta;
         font-weight: 600;
     }
-    p, li{
+    p,
+    li {
         color: $green;
         font-family: $lato;
         font-size: 20px;
@@ -43,7 +44,7 @@ body {
     border-color: $green;
     input,
     textarea,
-    a, 
+    a,
     i {
         color: $green;
     }
@@ -123,7 +124,6 @@ body {
         color: $green;
         padding: 0px 10px;
     }
-    
 }
 // Page A propos
 #a-propos {
@@ -147,6 +147,21 @@ body {
 }
 
 // Page Home
+#AddMenuFast {
+    min-height: 400px;
+    a {
+        text-decoration: none;
+        color: green;
+        font-size: 24px;
+        background-color: $orange;
+        border-radius: 30px;
+        padding: 10px 30px;
+        height: 80px;
+    }
+    a:hover {
+        color: $white;
+    }
+}
 #semainier {
     display: block;
     background-image: url(http://[::1]:5173/public/images/bg-accueil-contact.webp);
@@ -278,7 +293,67 @@ body {
 
 #semainier-mobile {
     display: none;
+    background-image: url(http://[::1]:5173/public/images/bg-accueil-contact.webp);
+    background-size: cover;
+    background-position: right;
+    border-radius: 15px;
+    margin: 80px 5px;
+    color: $white;
+    font-family: $mukta;
+    #links-semainier {
+        a {
+            color: $white;
+            i {
+                font-size: 40px;
+            }
+        }
+        button {
+            border: none;
+            padding: 0;
+            background: none;
+            color: inherit;
+            i {
+                font-size: 40px;
+            }
+        }
+    }
+    .semainier-jour {
+        display: grid;
+        grid-template-columns: repeat(2, 130px) 10px repeat(2, 130px);
+        grid-template-rows: 50px 50px 200px;
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        justify-content: center;
+        margin-bottom: 40px;
+        .jour {
+            grid-area: 1 / 2 / 2 / 5;
+        }
+        .jour-midi {
+            grid-area: 2 / 1 / 3 / 3;
+        }
+        .jour-soir {
+            grid-area: 2 / 4 / 3 / 6;
+        }
+        .box-meal {
+            background-color: $white;
+            border: 1px solid $green;
+            border-radius: 5px;
+            button {
+                border: none;
+                padding: 0;
+                background: none;
+                color: $green;
+            }
+        }
+        .recipe1, .recipe3 {
+            grid-area: 3 / 1 / 4 / 3;
+        }
+        .recipe2, .recipe4 {
+            grid-area: 3 / 4 / 4 / 6;
+        }
+    }
 }
+
 
 #link-myRecipes a {
     color: $white;
@@ -334,14 +409,20 @@ body {
     }
 }
 
-
 /**************** Responsive ****************/
 @media screen and (max-width: 768px) {
-#semainier {
-    display: none;
-}
-#semainier-mobile {
-    display: block;
+    #AddMenuFast {
+        min-height: 400px;
+        a {
+            font-size: 20px;
+            padding: 10px 20px;
+        }
+    }
+    #semainier {
+        display: none;
+    }
+    #semainier-mobile {
+        display: block;
 }
 }
 
@@ -361,7 +442,34 @@ body {
             padding: 0 !important;
         }
     }
+}
 
+@media screen and (max-width: 425px) {
+    #AddMenuFast {
+        min-height: 200px;
+        margin-left: 10px;
+        margin-right: 10px;
+        a {
+            font-size: 22px;
+            padding: 10px 20px;
+            height: 120px;
+            text-align: center;
+        }
+    }
+    #semainier {
+        display: none;
+    }
+    #semainier-mobile {
+        display:grid;
+        margin: 80px 1px;
+    .semainier-jour {
+        display: grid;
+        grid-template-columns: repeat(2, 76px) 3px repeat(2, 76px);
+        grid-template-rows: 50px 50px 170px;
+        .box-meal p {
+            font-size: 16px;
+        }
+}
 
-
+}
 }

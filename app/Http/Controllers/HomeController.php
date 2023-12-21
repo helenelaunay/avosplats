@@ -26,9 +26,9 @@ class HomeController extends Controller
     public function index()
     {
         $user = auth()->user();
-         $menus = Menu::where("user_id", "=", $user->id)->latest()->take(2)->get();
-        //$menus = [$user->menu[0],$user->menu[1]];
-   
+        $menus = Menu::where("user_id", "=", $user->id)->latest()->take(2)->get();
+
+
         $mealsMidi = [];
         $mealsSoir = [];
         foreach ($menus as $menu) {
@@ -40,8 +40,43 @@ class HomeController extends Controller
                 }
             }
         }
-        // dd($mealsMidi); 
 
-        return view('home', compact('menus', 'user', 'mealsMidi', 'mealsSoir'));
+
+        $mealsLundi = [];
+        $mealsMardi = [];
+        $mealsMercredi = [];
+        $mealsJeudi = [];
+        $mealsVendredi = [];
+        $mealsSamedi = [];
+        $mealsDimanche = [];
+        foreach ($menus as $menu) {
+            foreach ($menu->meals as $meal) {
+                switch ($meal) {
+                    case str_contains($meal->nameMeal, 'lundi'):
+                        array_push($mealsLundi, $meal);
+                        break;
+                    case str_contains($meal->nameMeal, 'mardi'):
+                        array_push($mealsMardi, $meal);
+                        break;
+                    case str_contains($meal->nameMeal, 'mercredi'):
+                        array_push($mealsMercredi, $meal);
+                        break;
+                    case str_contains($meal->nameMeal, 'jeudi'):
+                        array_push($mealsJeudi, $meal);
+                        break;
+                    case str_contains($meal->nameMeal, 'vendredi'):
+                        array_push($mealsVendredi, $meal);
+                        break;
+                    case str_contains($meal->nameMeal, 'samedi'):
+                        array_push($mealsSamedi, $meal);
+                        break;
+                    case str_contains($meal->nameMeal, 'dimanche'):
+                        array_push($mealsDimanche, $meal);
+                        break;
+                }
+            }
+        }
+
+        return view('home', compact('menus', 'user', 'mealsMidi', 'mealsSoir', 'mealsLundi', 'mealsMardi', 'mealsMercredi', 'mealsJeudi', 'mealsVendredi', 'mealsSamedi', 'mealsDimanche'));
     }
 }
