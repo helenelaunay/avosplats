@@ -9,7 +9,7 @@
         <div class="card">
             <div class="card-header">{{ __('Modifier ma recette') }}</div>
 
-            <div class="d-flex align-items-center mt-3 ms-3">
+            <div class="d-flex mt-3 ms-3 info-div">
                 <i class="fa-solid fa-lightbulb"></i>                 
                 <p class="ps-2 mb-0">Pensez à mentionner à combien de personnes correspondent les quantités indiquées. </p>
             </div>
@@ -37,15 +37,16 @@
                         <button type="submit" class="btn btn-primary mb-3">Ajouter</button>
                     </div>
                 </form>
-                <div class="d-flex align-items-center justify-content-center mb-3">
+                <div class="d-flex justify-content-center info-div ms-2 me-1 mb-3">
                     <i class="fa-solid fa-triangle-exclamation"></i>
                     <p class="ps-2 mb-0">Dans l'attente de sa validation par l'administrateur, votre recette ne sera pas visible
                         dans la liste des recettes !</p>
                 </div>
-                <div class="d-flex align-items-center justify-content-center mb-3">
+                <div class="d-flex justify-content-center info-div ms-2 mb-3">
                     <i class="fa-solid fa-lightbulb"></i>                    
                     <p class="ps-2 mb-0">Vous ne pouvez pas supprimer votre recette après édition/modification. Seul un administrateur peut réaliser cette action.</p>
                 </div>
             </div>
         </div>
+    </main>
     @endsection

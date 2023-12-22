@@ -43,7 +43,7 @@
                         </div>
                     </div>
                     <div class="d-flex justify-content-end">
-                        <button type="submit" class="btn btn-primary mb-3">Valider</button>
+                        <button type="submit" class="btn btn-primary me-1 mb-3">Valider</button>
                     </div>
                 </form>
             </div>

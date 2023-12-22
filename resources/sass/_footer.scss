@@ -47,7 +47,12 @@ footer {
                 align-items: center;
                 p {
                     padding-top: 30px;
+                    padding-bottom: 10px;
                     text-align: center;
+                }
+                a i {
+                    padding: 0px !important;
+                    font-size: 25px;
                 }
                 nav {
                     padding-top: 20px;

@@ -66,6 +66,9 @@ body {
 }
 
 #tableRecipe {
+    tr td {
+        color: $green;
+    }
     input,
     a {
         color: $green;
@@ -300,6 +303,7 @@ body {
     margin: 80px 5px;
     color: $white;
     font-family: $mukta;
+    padding-bottom: 50px;
     h1 {
         font-weight: 600;
     }
@@ -362,6 +366,10 @@ body {
     }
 }
 
+.info-div {
+    align-items: center;
+}
+
 #link-myRecipes a {
     color: $white;
     background-color: $green;
@@ -421,7 +429,7 @@ body {
     #semainier {
         #semainier-meals {
             display: grid;
-            grid-template-columns: 60px repeat(7, 1fr) 20px;
+            grid-template-columns: 50px repeat(7, 1fr) 10px;
             grid-template-rows: 30px repeat(2, 140px) 100px;
         }
     }
@@ -435,11 +443,20 @@ body {
             padding: 10px 20px;
         }
     }
+    #tableRecipe {
+        button {
+            padding: 0px;
+        }
+
+    }
     #semainier {
         display: none;
     }
     #semainier-mobile {
         display: block;
+    }
+    .info-div {
+        align-items: baseline !important;
     }
 }
 

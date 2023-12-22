@@ -73,6 +73,11 @@ header {
 /**************** Responsive ****************/
 
 @media screen and (max-width: 767px) {
+
+    .navbar-collapse {
+        z-index: 1000;
+    }
+
     #navbarDropdown {
         display: none;
     }
