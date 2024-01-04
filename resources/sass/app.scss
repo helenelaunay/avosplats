@@ -31,6 +31,7 @@ body {
     margin: 80px 0px;
     border-color: $orange;
     color: $green;
+    font-family: $lato;
 
     .card-header {
         font-size: 20px;
@@ -106,6 +107,7 @@ body {
     border-radius: 30px;
     margin-bottom: 30px;
     font-size: 22px;
+    font-family: $lato;
 }
 #linkAddMyRecipe a:hover {
     color: $orange;

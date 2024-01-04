@@ -11,7 +11,7 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-protected $with = ['menu']; 
+protected $with = ['menus']; 
     /**
      * The attributes that are mass assignable.
      *
@@ -29,9 +29,14 @@ protected $with = ['menu'];
         return $this->belongsTo(Role::class);
     }
 
-    public function menu()
+    public function menus()
     {
         return $this->hasMany(Menu::class);
+    }
+
+    public function recipes()
+    {
+        return $this->hasMany(Recipe::class);
     }
     
 

@@ -19,7 +19,7 @@ class Menu extends Model
 
     public function meals()
     {
-        return $this->belongsToMany(Meal::class, 'meals_menus');
+        return $this->hasMany(Meal::class);
     }
 
     public function user()

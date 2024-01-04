@@ -4,9 +4,9 @@
     <main>
         @if (count($menus) == 0)
             <div id="AddMenuFast" class="d-flex justify-content-center mt-5">
-                <a  href="{{ route('createMenu') }}"><i class="fa-solid fa-circle-plus p-3"></i> Créer vite votre menu en cliquant ici</a>
+                <a href="{{ route('createMenu') }}"><i class="fa-solid fa-circle-plus p-3"></i> Créer vite votre menu en
+                    cliquant ici</a>
             </div>
-                
         @else
             @foreach ($menus as $menu)
                 {{-- Affichage du semainier en Desktop --}}
@@ -474,14 +474,6 @@
                                 @endif
                             @endforeach
                         </div>
-
-
-
-
-
-
-
-
                     </div>
                 </div>
             @endforeach

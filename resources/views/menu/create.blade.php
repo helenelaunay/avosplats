@@ -25,10 +25,11 @@
             </form>
 
             <div>
-                <p class="text-center mb-5">Attention : Vous ne pouvez afficher que 2 menus. Si deux menus sont déjà créés sur
+                <p class="text-center mb-5">Attention : Vous ne pouvez afficher que 2 menus. Si deux menus sont déjà créés
+                    sur
                     votre profil, le plus ancien disparaitra à la création d'un nouveau.</p>
             </div>
-        </div>
+
         </div>
     </main>
 @endsection

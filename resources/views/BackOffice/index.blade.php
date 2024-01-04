@@ -64,7 +64,7 @@
                                     <td>{{ $recipe->contentRecipe }}</td>
                                     <td>
                                         <button><a href="{{ route('editRecipeBackOffice', $recipe->id) }}"><i
-                                                class="fa-regular fa-pen-to-square"></i></a></button>
+                                                    class="fa-regular fa-pen-to-square"></i></a></button>
                                     </td>
                                     <td>
                                         <form id="deleteUserForm"
@@ -113,7 +113,8 @@
                                         method="post">
                                         @csrf
                                         @method('delete')
-                                        <button id="deleteUser" type="submit"><i class="fa-regular fa-trash-can"></i></button>
+                                        <button id="deleteUser" type="submit"><i
+                                                class="fa-regular fa-trash-can"></i></button>
                                     </form>
                                 </td>
                         @endforeach

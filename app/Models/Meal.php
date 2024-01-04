@@ -22,9 +22,9 @@ class Meal extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function menus()
+    public function menu()
     {
-        return $this->belongsToMany(Menu::class, 'meals_menus');
+        return $this->belongsTo(Menu::class);
     }
 
     public function recipe()

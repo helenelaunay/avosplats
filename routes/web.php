@@ -63,7 +63,9 @@ Route::delete('recipe/destroy/{id}', [App\Http\Controllers\RecipeController::cla
 
 
 // Route BackOffice
-Route::get('BackOffice/index', [App\Http\Controllers\BackOffice\BackOfficeController::class, 'index'])->name('indexBackOffice')->middleware('CheckRole');
+Route::get('BackOffice/index', 
+[App\Http\Controllers\BackOffice\BackOfficeController::class,'index'])
+->name('indexBackOffice')->middleware('CheckRole');
 
 // Routes UserBackOffice 
 Route::get('UserBackOffice/index', [App\Http\Controllers\BackOffice\UserBackOfficeController::class, 'index'])->name('indexUserBackOffice')->middleware('CheckRole');

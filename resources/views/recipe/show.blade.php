@@ -11,4 +11,5 @@
             <img src="{{ asset('photos_des_recettes/' . $recipe->photoRecipe) }}" alt="Image de la recette" class="w-75">
             <p>{{ $recipe->contentRecipe }}</p>
         </div>
+    </main>
     @endsection

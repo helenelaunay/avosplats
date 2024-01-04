@@ -16,29 +16,27 @@
                     @csrf
                     @method('PUT')
 
-                        <div class="form-group mt-2">
-                            <label for="photo">Nouveau pseudo</label>
-                            <input type="text" class="form-control mb-3" placeholder="modifier" name="pseudo"
-                                value="{{ $user->pseudo }}" id="pseudo">
-                        </div>
-                        <div class="form-group mt-2">
-                            <label for="email">Nouvelle adresse e-mail</label>
-                            <input type="text" class="form-control mb-3" placeholder="modifier" name="email"
-                                value="{{ $user->email }}" id="email">
-                        </div>
-                        <div id="form-input-image" class="form-group mt-2">
-                            <img  class="mb-2" src="{{ asset('photos_de_profil/' . $user->photo) }}" alt="Photo de profil">
-                            <label for="image">Nouvelle photo de profil</label>
-                            <input type="file" class="form-control mb-3" name="photo"
-                                id="photo">
-                        </div>
-                        <div class="d-flex justify-content-end">
-                            <button type="submit" class="btn btn-primary me-1 mb-3">Valider</button>
-                        </div>
+                    <div class="form-group mt-2">
+                        <label for="photo">Nouveau pseudo</label>
+                        <input type="text" class="form-control mb-3" placeholder="modifier" name="pseudo"
+                            value="{{ $user->pseudo }}" id="pseudo">
+                    </div>
+                    <div class="form-group mt-2">
+                        <label for="email">Nouvelle adresse e-mail</label>
+                        <input type="text" class="form-control mb-3" placeholder="modifier" name="email"
+                            value="{{ $user->email }}" id="email">
+                    </div>
+                    <div id="form-input-image" class="form-group d-flex flex-column mt-2">
+                        <label for="image">Nouvelle photo de profil</label>
+                        <img class="mb-2" src="{{ asset('photos_de_profil/' . $user->photo) }}" alt="Photo de profil">
+                        <input type="file" class="form-control mb-3" name="photo" id="photo">
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary me-1 mb-3">Valider</button>
+                    </div>
                 </form>
-
-
             </div>
+            
             <div class="col-11 mx-auto mt-5 d-flex justify-content-end">
                 <form id="deleteUserForm" action="{{ route('destroyUser', $user) }}" method="post"
                     onsubmit="return confirmDelete()">
@@ -48,7 +46,7 @@
                         compte</button>
                 </form>
             </div>
-        </div>
+
         </div>
     </main>
 @endsection

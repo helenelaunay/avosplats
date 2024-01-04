@@ -7,7 +7,7 @@ footer {
         height: 110px;
         width: 110px;
     }
-    p, i, a {
+    p, a {
         color: $white !important;
         font-size: $lato;
         font-size: 20px;
@@ -17,7 +17,7 @@ footer {
     }
     #socialLinks-box {
         display: flex; 
-        align-items: center;
+        align-items: center;    
     }
 }
  

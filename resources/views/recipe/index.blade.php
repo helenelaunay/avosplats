@@ -29,7 +29,6 @@
                                     {{ $recipe->nameRecipe }} </label>
                                 <input type="hidden" value="{{ $meal_id }}" name="meal_id">
                                 <input type="hidden" value="{{ $menu_id }}" name="menu_id">
-
                             </td>
                             <td>
                                 <div class="d-flex justify-content-center">
@@ -40,7 +39,6 @@
                                 <div>
                                     <button class="" type="submit">Ajouter</button>
                                 </div>
-
                             </td>
 
 
@@ -50,11 +48,12 @@
             </table>
 
 
-        </div>
+
         </div>
 
         <div id="linkAddMyRecipe" class="d-flex justify-content-center">
-            <a class="text-center" href="{{ route('createRecipe') }}"><i class="fa-solid fa-circle-plus pe-3"></i>Ajouter ma recette</a>
+            <a class="text-center" href="{{ route('createRecipe') }}"><i class="fa-solid fa-plus pe-3"></i>Ajouter ma
+                recette</a>
         </div>
     </main>
-    @endsection
+@endsection

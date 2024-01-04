@@ -130,12 +130,12 @@ class MenuController extends Controller
         $meals = Meal::latest()->take(14)->orderBy('id', 'asc')->get();
 
 
-        foreach ($meals as $meal) {
-            DB::table('meals_menus')->insert([
-                'meal_id' => $meal->id,
-                'menu_id' => $menu->id
-            ]);                        
-        }
+        // foreach ($meals as $meal) {
+        //     DB::table('meals_menus')->insert([
+        //         'meal_id' => $meal->id,
+        //         'menu_id' => $menu->id
+        //     ]);                        
+        // }
         //dd( $menu);
         return redirect()->route('home')->with('message', 'Votre menu a bien été créé !');
     }
@@ -176,7 +176,6 @@ class MenuController extends Controller
     {
         if (Auth::user()->id == $request->user_id) {
             $menu = Menu::find($id);
-            $menu->meals()->detach();
             $menu->delete(); // on réalise la suppression du menu
             return redirect()->route('home')->with('message', 'Le menu a bien été supprimé.');
         } else {
